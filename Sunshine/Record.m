@@ -13,6 +13,10 @@
 @synthesize name;
 @synthesize sections;
 
++(id) recordWithAttributes:(NSDictionary *)attributes {
+    return [[Record alloc] initWithAttributes:attributes];
+}
+
 +(BOOL) isRecord:(NSString *)qName {
     return [qName caseInsensitiveCompare:@"record"] == NSOrderedSame;
 }
@@ -33,8 +37,8 @@
     return self;
 }
 
--(void) addSection: (id) section {
-    
+-(void) addSection: (Section*) section {
+    [sections addObject:section];
 }
 
 @end

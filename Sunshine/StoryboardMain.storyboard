@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="170" y="79"/>
         </scene>
-        <!--View Controller Main - Sunshine Center-->
+        <!--Main View Controller - Sunshine Center-->
         <scene sceneID="mFt-5j-1cv">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYv-UI-F62" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="lQj-lo-F98" customClass="ViewControllerMain" sceneMemberID="viewController">
+                <viewController id="lQj-lo-F98" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VeE-LI-ryr">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,17 +97,20 @@
             </objects>
             <point key="canvasLocation" x="617" y="27"/>
         </scene>
-        <!--View Controller Record-->
+        <!--Record View Controller-->
         <scene sceneID="cdM-O5-FcO">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ms4-av-zO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="xBX-er-wfu" customClass="ViewControllerRecord" sceneMemberID="viewController">
+                <viewController id="xBX-er-wfu" customClass="RecordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJO-jd-MGo">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="frn-KK-82j"/>
+                    <connections>
+                        <outlet property="navItem" destination="frn-KK-82j" id="GJv-ud-1XV"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1104" y="9"/>
@@ -116,14 +119,6 @@
     <resources>
         <image name="logo_trans.png" width="618" height="350"/>
     </resources>
-    <classes>
-        <class className="ViewControllerMain" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerMain.h"/>
-        </class>
-        <class className="ViewControllerRecord" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerRecord.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

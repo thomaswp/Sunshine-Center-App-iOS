@@ -6,19 +6,22 @@
 //  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
 //
 
-#import "ViewControllerRecord.h"
+#import "RecordViewController.h"
 #import "RecordCache.h"
+#import "Record.h"
 
-@interface ViewControllerRecord ()
+@interface RecordViewController ()
 
 @end
 
-@implementation ViewControllerRecord
+@implementation RecordViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [RecordCache parseRecordWithPath:self.recordName];
+    Record* record = [RecordCache parseRecordWithPath:self.recordName];
+    self.navItem.title = record.name;
+    NSLog(@"-:%@", record.name);
 }
 
 - (void)viewDidUnload

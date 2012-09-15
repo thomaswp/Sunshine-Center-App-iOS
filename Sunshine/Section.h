@@ -10,4 +10,13 @@
 
 @interface Section : NSObject
 
+@property(readonly) NSString* title;
+@property(readonly) NSMutableArray* headers;
+
++(id) sectionWithAttributes: (NSDictionary*) attributes;
++(BOOL) isSection: (NSString*) qName;
+
+-(id) initWithAttributes: (NSDictionary*) attributes;
+-(void) addHeader: (id) header;
+
 @end

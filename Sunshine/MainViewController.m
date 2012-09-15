@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
 //
 
-#import "ViewControllerMain.h"
-#import "ViewControllerRecord.h"
+#import "MainViewController.h"
+#import "RecordViewController.h"
 
-@interface ViewControllerMain ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewControllerMain
+@implementation MainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

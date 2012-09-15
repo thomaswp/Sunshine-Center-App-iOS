@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerRecord : UIViewController
+@interface RecordViewController : UIViewController
 @property (strong, nonatomic) NSString *recordName;
+@property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @end

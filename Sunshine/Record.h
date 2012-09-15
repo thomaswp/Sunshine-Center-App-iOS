@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Section.h"
 
 @interface Record : NSObject
 
 @property(readonly) NSString* name;
 @property(readonly) NSMutableArray* sections;
 
++(id) recordWithAttributes: (NSDictionary*) attributes;
 +(BOOL) isRecord: (NSString*) qName;
 +(NSString*) removeSpecialCharacters: (NSString*) text;
 
 -(id) initWithAttributes: (NSDictionary*) attributes;
--(void) addSection: (id) section;
+-(void) addSection: (Section*) section;
 
 @end
