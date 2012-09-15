@@ -30,6 +30,7 @@
 		9DDD92EB16050A8F00AADF44 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92EA16050A8F00AADF44 /* Record.m */; };
 		9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */; };
 		9DDD92F31605151500AADF44 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92F21605151500AADF44 /* Section.m */; };
+		9DDD92F616051CEF00AADF44 /* Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92F516051CEF00AADF44 /* Header.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordParserDelegate.m; sourceTree = "<group>"; };
 		9DDD92F11605151500AADF44 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		9DDD92F21605151500AADF44 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		9DDD92F416051CEF00AADF44 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		9DDD92F516051CEF00AADF44 /* Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 				9DDD92EA16050A8F00AADF44 /* Record.m */,
 				9DDD92F11605151500AADF44 /* Section.h */,
 				9DDD92F21605151500AADF44 /* Section.m */,
+				9DDD92F416051CEF00AADF44 /* Header.h */,
+				9DDD92F516051CEF00AADF44 /* Header.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				9DDD92EB16050A8F00AADF44 /* Record.m in Sources */,
 				9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */,
 				9DDD92F31605151500AADF44 /* Section.m in Sources */,
+				9DDD92F616051CEF00AADF44 /* Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

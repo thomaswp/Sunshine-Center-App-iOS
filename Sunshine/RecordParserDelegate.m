@@ -16,6 +16,9 @@
 
 Record* currentRecord;
 Section* currentSection;
+Header* currentHeader;
+NSMutableString* currentBody;
+NSDictionary* currentAttributes;
 
 +(id) delegate {
     return [[RecordParserDelegate alloc] init];
@@ -24,11 +27,21 @@ Section* currentSection;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
     if ([Record isRecord:elementName]) {
         currentRecord = [Record recordWithAttributes: attributeDict];
-        NSLog(@"record %@", currentRecord.name);
     } else if ([Section isSection:elementName]) {
         currentSection = [Section sectionWithAttributes:attributeDict];
         [currentRecord addSection:currentSection];
-        NSLog(@"section");
+    } else if ([Header isHeader:elementName]) {
+        currentHeader = [Header headerWithAttributes:attributeDict];
+        [currentSection addHeader:currentHeader];
+    } else if ([Header isHeaderElement:elementName]) {
+        currentBody = [NSMutableString string];
+        currentAttributes = [NSDictionary dictionaryWithDictionary:attributeDict];
+    } else if (currentBody != nil) {
+        NSEnumerator* e = [attributeDict keyEnumerator];
+        NSString *key;
+        while ((key = [e nextObject]) != nil) {
+            [currentBody appendFormat: @" %@=\"%@\"", key, [attributeDict valueForKey:key]];
+        }
     }
     record = currentRecord;
 }

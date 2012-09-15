@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Header.h"
 
 @interface Section : NSObject
 
@@ -17,6 +18,6 @@
 +(BOOL) isSection: (NSString*) qName;
 
 -(id) initWithAttributes: (NSDictionary*) attributes;
--(void) addHeader: (id) header;
+-(void) addHeader: (Header*) header;
 
 @end

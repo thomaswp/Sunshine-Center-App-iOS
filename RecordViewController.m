@@ -21,7 +21,6 @@
     [super viewDidLoad];
     Record* record = [RecordCache parseRecordWithPath:self.recordName];
     self.navItem.title = record.name;
-    NSLog(@"-:%@", record.name);
 }
 
 - (void)viewDidUnload

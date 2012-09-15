@@ -28,8 +28,8 @@
     return self;
 }
 
--(void) addHeader:(id)header {
-    
+-(void) addHeader:(Header*) header {
+    [headers addObject:header];
 }
 
 @end
