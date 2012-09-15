@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DC2316B1604F167009C5B34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316A1604F167009C5B34 /* UIKit.framework */; };
+		9DC2316D1604F167009C5B34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316C1604F167009C5B34 /* Foundation.framework */; };
+		9DC2316F1604F167009C5B34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316E1604F167009C5B34 /* CoreGraphics.framework */; };
+		9DC231751604F167009C5B34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DC231731604F167009C5B34 /* InfoPlist.strings */; };
+		9DC231771604F167009C5B34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC231761604F167009C5B34 /* main.m */; };
+		9DC2317B1604F167009C5B34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2317A1604F167009C5B34 /* AppDelegate.m */; };
+		9DC231831604F167009C5B34 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC231821604F167009C5B34 /* SenTestingKit.framework */; };
+		9DC231841604F167009C5B34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316A1604F167009C5B34 /* UIKit.framework */; };
+		9DC231851604F167009C5B34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316C1604F167009C5B34 /* Foundation.framework */; };
+		9DC2318D1604F167009C5B34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DC2318B1604F167009C5B34 /* InfoPlist.strings */; };
+		9DC231901604F167009C5B34 /* SunshineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2318F1604F167009C5B34 /* SunshineTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DC231861604F167009C5B34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DC2315D1604F167009C5B34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DC231651604F167009C5B34;
+			remoteInfo = Sunshine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9DC231661604F167009C5B34 /* Sunshine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunshine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC2316A1604F167009C5B34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9DC2316C1604F167009C5B34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9DC2316E1604F167009C5B34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9DC231721604F167009C5B34 /* Sunshine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sunshine-Info.plist"; sourceTree = "<group>"; };
+		9DC231741604F167009C5B34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DC231761604F167009C5B34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9DC231781604F167009C5B34 /* Sunshine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sunshine-Prefix.pch"; sourceTree = "<group>"; };
+		9DC231791604F167009C5B34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9DC2317A1604F167009C5B34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9DC231811604F167009C5B34 /* SunshineTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunshineTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC231821604F167009C5B34 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9DC2318A1604F167009C5B34 /* SunshineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SunshineTests-Info.plist"; sourceTree = "<group>"; };
+		9DC2318C1604F167009C5B34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DC2318E1604F167009C5B34 /* SunshineTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SunshineTests.h; sourceTree = "<group>"; };
+		9DC2318F1604F167009C5B34 /* SunshineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SunshineTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DC231631604F167009C5B34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC2316B1604F167009C5B34 /* UIKit.framework in Frameworks */,
+				9DC2316D1604F167009C5B34 /* Foundation.framework in Frameworks */,
+				9DC2316F1604F167009C5B34 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC2317D1604F167009C5B34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC231831604F167009C5B34 /* SenTestingKit.framework in Frameworks */,
+				9DC231841604F167009C5B34 /* UIKit.framework in Frameworks */,
+				9DC231851604F167009C5B34 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DC2315B1604F167009C5B34 = {
+			isa = PBXGroup;
+			children = (
+				9DC231701604F167009C5B34 /* Sunshine */,
+				9DC231881604F167009C5B34 /* SunshineTests */,
+				9DC231691604F167009C5B34 /* Frameworks */,
+				9DC231671604F167009C5B34 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DC231671604F167009C5B34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DC231661604F167009C5B34 /* Sunshine.app */,
+				9DC231811604F167009C5B34 /* SunshineTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DC231691604F167009C5B34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DC2316A1604F167009C5B34 /* UIKit.framework */,
+				9DC2316C1604F167009C5B34 /* Foundation.framework */,
+				9DC2316E1604F167009C5B34 /* CoreGraphics.framework */,
+				9DC231821604F167009C5B34 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DC231701604F167009C5B34 /* Sunshine */ = {
+			isa = PBXGroup;
+			children = (
+				9DC231791604F167009C5B34 /* AppDelegate.h */,
+				9DC2317A1604F167009C5B34 /* AppDelegate.m */,
+				9DC231711604F167009C5B34 /* Supporting Files */,
+			);
+			path = Sunshine;
+			sourceTree = "<group>";
+		};
+		9DC231711604F167009C5B34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DC231721604F167009C5B34 /* Sunshine-Info.plist */,
+				9DC231731604F167009C5B34 /* InfoPlist.strings */,
+				9DC231761604F167009C5B34 /* main.m */,
+				9DC231781604F167009C5B34 /* Sunshine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DC231881604F167009C5B34 /* SunshineTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DC2318E1604F167009C5B34 /* SunshineTests.h */,
+				9DC2318F1604F167009C5B34 /* SunshineTests.m */,
+				9DC231891604F167009C5B34 /* Supporting Files */,
+			);
+			path = SunshineTests;
+			sourceTree = "<group>";
+		};
+		9DC231891604F167009C5B34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DC2318A1604F167009C5B34 /* SunshineTests-Info.plist */,
+				9DC2318B1604F167009C5B34 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DC231651604F167009C5B34 /* Sunshine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC231931604F167009C5B34 /* Build configuration list for PBXNativeTarget "Sunshine" */;
+			buildPhases = (
+				9DC231621604F167009C5B34 /* Sources */,
+				9DC231631604F167009C5B34 /* Frameworks */,
+				9DC231641604F167009C5B34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sunshine;
+			productName = Sunshine;
+			productReference = 9DC231661604F167009C5B34 /* Sunshine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DC231801604F167009C5B34 /* SunshineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC231961604F167009C5B34 /* Build configuration list for PBXNativeTarget "SunshineTests" */;
+			buildPhases = (
+				9DC2317C1604F167009C5B34 /* Sources */,
+				9DC2317D1604F167009C5B34 /* Frameworks */,
+				9DC2317E1604F167009C5B34 /* Resources */,
+				9DC2317F1604F167009C5B34 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DC231871604F167009C5B34 /* PBXTargetDependency */,
+			);
+			name = SunshineTests;
+			productName = SunshineTests;
+			productReference = 9DC231811604F167009C5B34 /* SunshineTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DC2315D1604F167009C5B34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Sunshine Center or NC";
+			};
+			buildConfigurationList = 9DC231601604F167009C5B34 /* Build configuration list for PBXProject "Sunshine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9DC2315B1604F167009C5B34;
+			productRefGroup = 9DC231671604F167009C5B34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DC231651604F167009C5B34 /* Sunshine */,
+				9DC231801604F167009C5B34 /* SunshineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DC231641604F167009C5B34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC231751604F167009C5B34 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC2317E1604F167009C5B34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC2318D1604F167009C5B34 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9DC2317F1604F167009C5B34 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DC231621604F167009C5B34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC231771604F167009C5B34 /* main.m in Sources */,
+				9DC2317B1604F167009C5B34 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC2317C1604F167009C5B34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC231901604F167009C5B34 /* SunshineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DC231871604F167009C5B34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DC231651604F167009C5B34 /* Sunshine */;
+			targetProxy = 9DC231861604F167009C5B34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DC231731604F167009C5B34 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DC231741604F167009C5B34 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9DC2318B1604F167009C5B34 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DC2318C1604F167009C5B34 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DC231911604F167009C5B34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DC231921604F167009C5B34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DC231941604F167009C5B34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sunshine/Sunshine-Prefix.pch";
+				INFOPLIST_FILE = "Sunshine/Sunshine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9DC231951604F167009C5B34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sunshine/Sunshine-Prefix.pch";
+				INFOPLIST_FILE = "Sunshine/Sunshine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9DC231971604F167009C5B34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sunshine.app/Sunshine";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sunshine/Sunshine-Prefix.pch";
+				INFOPLIST_FILE = "SunshineTests/SunshineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9DC231981604F167009C5B34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sunshine.app/Sunshine";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sunshine/Sunshine-Prefix.pch";
+				INFOPLIST_FILE = "SunshineTests/SunshineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DC231601604F167009C5B34 /* Build configuration list for PBXProject "Sunshine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC231911604F167009C5B34 /* Debug */,
+				9DC231921604F167009C5B34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC231931604F167009C5B34 /* Build configuration list for PBXNativeTarget "Sunshine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC231941604F167009C5B34 /* Debug */,
+				9DC231951604F167009C5B34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9DC231961604F167009C5B34 /* Build configuration list for PBXNativeTarget "SunshineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC231971604F167009C5B34 /* Debug */,
+				9DC231981604F167009C5B34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DC2315D1604F167009C5B34 /* Project object */;
+}
