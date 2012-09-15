@@ -18,6 +18,17 @@
 		9DC231851604F167009C5B34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316C1604F167009C5B34 /* Foundation.framework */; };
 		9DC2318D1604F167009C5B34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DC2318B1604F167009C5B34 /* InfoPlist.strings */; };
 		9DC231901604F167009C5B34 /* SunshineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2318F1604F167009C5B34 /* SunshineTests.m */; };
+		9DC2319E1604F345009C5B34 /* hours.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9DC2319D1604F345009C5B34 /* hours.txt */; };
+		9DDD92D01604F74C00AADF44 /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92CE1604F74C00AADF44 /* ViewControllerMain.m */; };
+		9DDD92D41604F7D800AADF44 /* StoryboardMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92D31604F7D800AADF44 /* StoryboardMain.storyboard */; };
+		9DDD92D61604FE3900AADF44 /* logo_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92D51604FE3900AADF44 /* logo_trans.png */; };
+		9DDD92DE1605068000AADF44 /* ViewControllerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92DC1605068000AADF44 /* ViewControllerRecord.m */; };
+		9DDD92E3160508C600AADF44 /* holders.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E0160508C600AADF44 /* holders.xml */; };
+		9DDD92E4160508C600AADF44 /* laws.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E1160508C600AADF44 /* laws.xml */; };
+		9DDD92E5160508C600AADF44 /* seekers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E2160508C600AADF44 /* seekers.xml */; };
+		9DDD92E8160509C600AADF44 /* RecordCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92E7160509C600AADF44 /* RecordCache.m */; };
+		9DDD92EB16050A8F00AADF44 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92EA16050A8F00AADF44 /* Record.m */; };
+		9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,22 @@
 		9DC2318C1604F167009C5B34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DC2318E1604F167009C5B34 /* SunshineTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SunshineTests.h; sourceTree = "<group>"; };
 		9DC2318F1604F167009C5B34 /* SunshineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SunshineTests.m; sourceTree = "<group>"; };
+		9DC2319D1604F345009C5B34 /* hours.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hours.txt; sourceTree = "<group>"; };
+		9DDD92CD1604F74C00AADF44 /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
+		9DDD92CE1604F74C00AADF44 /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
+		9DDD92D31604F7D800AADF44 /* StoryboardMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardMain.storyboard; sourceTree = "<group>"; };
+		9DDD92D51604FE3900AADF44 /* logo_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_trans.png; sourceTree = "<group>"; };
+		9DDD92DB1605068000AADF44 /* ViewControllerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRecord.h; path = ../ViewControllerRecord.h; sourceTree = "<group>"; };
+		9DDD92DC1605068000AADF44 /* ViewControllerRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerRecord.m; path = ../ViewControllerRecord.m; sourceTree = "<group>"; };
+		9DDD92E0160508C600AADF44 /* holders.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = holders.xml; sourceTree = "<group>"; };
+		9DDD92E1160508C600AADF44 /* laws.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = laws.xml; sourceTree = "<group>"; };
+		9DDD92E2160508C600AADF44 /* seekers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = seekers.xml; sourceTree = "<group>"; };
+		9DDD92E6160509C600AADF44 /* RecordCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCache.h; sourceTree = "<group>"; };
+		9DDD92E7160509C600AADF44 /* RecordCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCache.m; sourceTree = "<group>"; };
+		9DDD92E916050A8F00AADF44 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		9DDD92EA16050A8F00AADF44 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		9DDD92EC160510B400AADF44 /* RecordParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordParserDelegate.h; sourceTree = "<group>"; };
+		9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordParserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +103,7 @@
 		9DC2315B1604F167009C5B34 = {
 			isa = PBXGroup;
 			children = (
+				9DC2319D1604F345009C5B34 /* hours.txt */,
 				9DC231701604F167009C5B34 /* Sunshine */,
 				9DC231881604F167009C5B34 /* SunshineTests */,
 				9DC231691604F167009C5B34 /* Frameworks */,
@@ -106,9 +134,21 @@
 		9DC231701604F167009C5B34 /* Sunshine */ = {
 			isa = PBXGroup;
 			children = (
+				9DDD92DB1605068000AADF44 /* ViewControllerRecord.h */,
+				9DDD92DC1605068000AADF44 /* ViewControllerRecord.m */,
 				9DC231791604F167009C5B34 /* AppDelegate.h */,
 				9DC2317A1604F167009C5B34 /* AppDelegate.m */,
+				9DDD92CD1604F74C00AADF44 /* ViewControllerMain.h */,
+				9DDD92CE1604F74C00AADF44 /* ViewControllerMain.m */,
+				9DDD92D31604F7D800AADF44 /* StoryboardMain.storyboard */,
+				9DDD92E6160509C600AADF44 /* RecordCache.h */,
+				9DDD92E7160509C600AADF44 /* RecordCache.m */,
+				9DDD92EC160510B400AADF44 /* RecordParserDelegate.h */,
+				9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */,
+				9DDD92E916050A8F00AADF44 /* Record.h */,
+				9DDD92EA16050A8F00AADF44 /* Record.m */,
 				9DC231711604F167009C5B34 /* Supporting Files */,
+				9DDD92D71604FE3E00AADF44 /* Resources */,
 			);
 			path = Sunshine;
 			sourceTree = "<group>";
@@ -141,6 +181,18 @@
 				9DC2318B1604F167009C5B34 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DDD92D71604FE3E00AADF44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD92E0160508C600AADF44 /* holders.xml */,
+				9DDD92E1160508C600AADF44 /* laws.xml */,
+				9DDD92E2160508C600AADF44 /* seekers.xml */,
+				9DDD92D51604FE3900AADF44 /* logo_trans.png */,
+			);
+			name = Resources;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC231751604F167009C5B34 /* InfoPlist.strings in Resources */,
+				9DC2319E1604F345009C5B34 /* hours.txt in Resources */,
+				9DDD92D41604F7D800AADF44 /* StoryboardMain.storyboard in Resources */,
+				9DDD92D61604FE3900AADF44 /* logo_trans.png in Resources */,
+				9DDD92E3160508C600AADF44 /* holders.xml in Resources */,
+				9DDD92E4160508C600AADF44 /* laws.xml in Resources */,
+				9DDD92E5160508C600AADF44 /* seekers.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +309,11 @@
 			files = (
 				9DC231771604F167009C5B34 /* main.m in Sources */,
 				9DC2317B1604F167009C5B34 /* AppDelegate.m in Sources */,
+				9DDD92D01604F74C00AADF44 /* ViewControllerMain.m in Sources */,
+				9DDD92DE1605068000AADF44 /* ViewControllerRecord.m in Sources */,
+				9DDD92E8160509C600AADF44 /* RecordCache.m in Sources */,
+				9DDD92EB16050A8F00AADF44 /* Record.m in Sources */,
+				9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +481,7 @@
 				9DC231951604F167009C5B34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DC231961604F167009C5B34 /* Build configuration list for PBXNativeTarget "SunshineTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +490,7 @@
 				9DC231981604F167009C5B34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
