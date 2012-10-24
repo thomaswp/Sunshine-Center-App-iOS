@@ -3,7 +3,7 @@
 //  Sunshine
 //
 //  Created by Thomason Price on 9/15/12.
-//  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
+//  Copyright (c) 2012 Sunshine Center of NC. All rights reserved.
 //
 
 #import "Header.h"
@@ -14,7 +14,7 @@
 @synthesize title;
 
 +(id) headerWithAttributes:(NSDictionary *)attributes {
-    return [[Header alloc] init];
+    return [[Header alloc] initWithAttributes:attributes];
 }
 
 +(BOOL) isHeader:(NSString *)qName {
@@ -38,6 +38,10 @@
     title = [attributes valueForKey:@"title"];
     questions = [NSMutableArray array];
     return self;
+}
+
+-(void) addElementWithName:(NSString *)qName attributes:(NSDictionary *)attributes body:(NSString *)body {
+    
 }
 
 -(void) addQuestion:(id)header {

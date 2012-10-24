@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  Sunshine
 //
-//  Created by Thomason Price on 9/15/12.
+//  Created by Thomason Price of 9/15/12.
 //  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
 //
 

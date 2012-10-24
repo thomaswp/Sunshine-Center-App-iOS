@@ -2,7 +2,7 @@
 //  ViewControllerMain.m
 //  Sunshine
 //
-//  Created by Thomason Price on 9/15/12.
+//  Created by Thomason Price of 9/15/12.
 //  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
 //
 
@@ -43,13 +43,15 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString* file;
+    NSString* file = nil;
     switch ([sender tag]) {
         case 0: file = @"seekers"; break;
         case 1: file = @"holders"; break;
         case 2: file = @"laws"; break;
     }
-    [segue.destinationViewController setRecordName: file];
+    if (file != nil) {
+        [segue.destinationViewController setRecordName: file];
+    }
 }
 
 @end

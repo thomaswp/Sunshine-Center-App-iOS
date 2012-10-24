@@ -3,7 +3,7 @@
 //  Sunshine
 //
 //  Created by Thomason Price on 9/15/12.
-//  Copyright (c) 2012 Sunshine Center or NC. All rights reserved.
+//  Copyright (c) 2012 Sunshine Center of NC. All rights reserved.
 //
 
 #import "RecordCache.h"
@@ -11,7 +11,7 @@
 
 @implementation RecordCache
 
-static NSDictionary* recordCache;
+static NSMutableDictionary* recordCache;
 
 + (void)initialize
 {
@@ -19,18 +19,25 @@ static NSDictionary* recordCache;
     if(!initialized)
     {
         initialized = YES;
-        recordCache = [[NSDictionary alloc] init];
+        recordCache = [[NSMutableDictionary alloc] init];
     }
 }
 
 +(Record *)parseRecordWithPath:(NSString *)path {
-    RecordParserDelegate* delegate = [RecordParserDelegate delegate];
-    NSString *xmlPath = [[NSBundle mainBundle] pathForResource:path ofType:@"xml"];
-    NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath];
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
-    [parser setDelegate:delegate];
-    [parser parse];
-    return delegate.record;
+    Record* record = [recordCache objectForKey:path];
+    if (record == nil) {
+        
+        RecordParserDelegate* delegate = [RecordParserDelegate delegate];
+        NSString *xmlPath = [[NSBundle mainBundle] pathForResource:path ofType:@"xml"];
+        NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
+        [parser setDelegate:delegate];
+        [parser parse];
+        record = delegate.record;
+        [recordCache setValue:record forKey:path];
+    }
+    
+    return record;
 }
 
 @end
