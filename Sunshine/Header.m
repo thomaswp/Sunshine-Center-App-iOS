@@ -7,6 +7,8 @@
 //
 
 #import "Header.h"
+#import "Question.h"
+#import "Record.h"
 
 @implementation Header
 
@@ -26,11 +28,11 @@
 }
 
 +(BOOL) isQuestion:(NSString *)qName {
-    return [qName caseInsensitiveCompare:@"question"] == NSOrderedSame;
+    return [qName caseInsensitiveCompare:@"q"] == NSOrderedSame;
 }
 
 +(BOOL) isAnswer:(NSString *)qName {
-    return [qName caseInsensitiveCompare:@"answer"] == NSOrderedSame;
+    return [qName caseInsensitiveCompare:@"an"] == NSOrderedSame;
 }
 
 -(id) initWithAttributes:(NSDictionary *)attributes {
@@ -40,12 +42,16 @@
     return self;
 }
 
--(void) addElementWithName:(NSString *)qName attributes:(NSDictionary *)attributes body:(NSString *)body {
-    
-}
-
--(void) addQuestion:(id)header {
-    
+-(void) addElementWithName:(NSString *)qName attributes:(NSDictionary *)attributes body:(NSString *)body containsHTML:(BOOL)html {
+    body = [Record removeSpecialCharacters: body];
+    if ([Header isQuestion:qName]) {
+        [questions addObject: [Question questionWithQuestion:body attributes:attributes]];
+        NSLog(@"question: %@", body);
+    } else if ([Header isAnswer:qName]) {
+        Question* q = [questions objectAtIndex:[questions count] - 1];
+        q.answer = body;
+        q.containsHTML = html;
+    }
 }
 
 @end

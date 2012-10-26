@@ -33,6 +33,7 @@
 		9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */; };
 		9DDD92F31605151500AADF44 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92F21605151500AADF44 /* Section.m */; };
 		9DDD92F616051CEF00AADF44 /* Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92F516051CEF00AADF44 /* Header.m */; };
+		9DDDAC69163ADB9E00A56DA3 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAC68163ADB9E00A56DA3 /* Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		9DDD92F21605151500AADF44 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		9DDD92F416051CEF00AADF44 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		9DDD92F516051CEF00AADF44 /* Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header.m; sourceTree = "<group>"; };
+		9DDDAC67163ADB9E00A56DA3 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		9DDDAC68163ADB9E00A56DA3 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				9DDD92F21605151500AADF44 /* Section.m */,
 				9DDD92F416051CEF00AADF44 /* Header.h */,
 				9DDD92F516051CEF00AADF44 /* Header.m */,
+				9DDDAC67163ADB9E00A56DA3 /* Question.h */,
+				9DDDAC68163ADB9E00A56DA3 /* Question.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				9DDD92F616051CEF00AADF44 /* Header.m in Sources */,
 				9DC66A5E16383418001294B4 /* TestViewController.m in Sources */,
 				9DC66A6A16384107001294B4 /* HeaderViewController.m in Sources */,
+				9DDDAC69163ADB9E00A56DA3 /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

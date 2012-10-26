@@ -55,11 +55,29 @@ Record* record;
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     int section = indexPath.section;
     int row = indexPath.row;
-    cell.textLabel.text = [[[[record.sections objectAtIndex:section] headers] objectAtIndex:row] title];
+    NSString* text = [[[[record.sections objectAtIndex:section] headers] objectAtIndex:row] title];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
+    cell.textLabel.text = text;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.textAlignment = 1;
     return cell;
+}
+
+-(CGFloat) tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int section = indexPath.section;
+    int row = indexPath.row;
+    NSString* text = [[[[record.sections objectAtIndex:section] headers] objectAtIndex:row] title];
+
+    CGSize constraint = CGSizeMake(tableView.frame.size.width - (15 * 2), 20000.0f);
+    
+    UIFont* font =  [UIFont boldSystemFontOfSize: 17];
+    int height = [text sizeWithFont: font
+                  constrainedToSize: constraint
+                      lineBreakMode: UILineBreakModeWordWrap].height;
+    font = nil;
+    
+    return height + 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

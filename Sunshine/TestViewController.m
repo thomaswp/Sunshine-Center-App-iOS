@@ -49,11 +49,16 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section;
+    return section + 1;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    if (indexPath.row % 2 == 0) {
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.5f alpha:1];
+    }
+    return cell;
 }
 
 @end

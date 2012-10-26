@@ -20,6 +20,6 @@
 +(BOOL) isAnswer: (NSString*) qName;
 
 -(id) initWithAttributes: (NSDictionary*) attributes;
--(void) addElementWithName: (NSString*) qName attributes: (NSDictionary*) attributes body: (NSString*) body;
+-(void) addElementWithName: (NSString*) qName attributes: (NSDictionary*) attributes body: (NSString*) body containsHTML: (BOOL) html;
 
 @end

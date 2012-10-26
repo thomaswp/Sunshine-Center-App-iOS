@@ -12,4 +12,5 @@
 @property (strong, nonatomic) NSString *recordName;
 @property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @property (weak, nonatomic) IBOutlet UITableView* table;
+@property (weak, nonatomic) IBOutlet UITableViewCell* dummyCell;
 @end

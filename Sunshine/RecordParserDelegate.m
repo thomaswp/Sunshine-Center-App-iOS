@@ -19,6 +19,7 @@ Section* currentSection;
 Header* currentHeader;
 NSMutableString* currentBody;
 NSDictionary* currentAttributes;
+BOOL bodyContainsHTML = true;
 
 +(id) delegate {
     return [[RecordParserDelegate alloc] init];
@@ -42,17 +43,35 @@ NSDictionary* currentAttributes;
         while ((key = [e nextObject]) != nil) {
             [currentBody appendFormat: @" %@=\"%@\"", key, [attributeDict valueForKey:key]];
         }
+        [currentBody appendString:@">"];
+        bodyContainsHTML = YES;
+    } else {
+        NSLog(@"%@", elementName);
     }
     record = currentRecord;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    
+    if ([Header isHeaderElement:qName]) {
+        [currentBody replaceOccurrencesOfString:@"\n"
+                                     withString:@" "
+                                        options:0
+                                          range:NSMakeRange(0, [currentBody length])];
+        [currentBody replaceOccurrencesOfString:@"\t"
+                                     withString:@" "
+                                        options:0
+                                          range:NSMakeRange(0, [currentBody length])];
+        [currentHeader addElementWithName:qName attributes:currentAttributes body:currentBody containsHTML:bodyContainsHTML];
+        currentBody = nil;
+        bodyContainsHTML = NO;
+    } else if (currentBody != nil) {
+        [currentBody appendFormat:@"</%@>", qName];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if (string.length > 0) {
-        
+    if (currentBody != nil) {
+        [currentBody appendString:string];
     }
 }
 @end
