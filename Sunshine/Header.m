@@ -46,10 +46,9 @@
     body = [Record removeSpecialCharacters: body];
     if ([Header isQuestion:qName]) {
         [questions addObject: [Question questionWithQuestion:body attributes:attributes]];
-        NSLog(@"question: %@", body);
     } else if ([Header isAnswer:qName]) {
         Question* q = [questions objectAtIndex:[questions count] - 1];
-        q.answer = body;
+        //q.answer = body;
         q.containsHTML = html;
     }
 }

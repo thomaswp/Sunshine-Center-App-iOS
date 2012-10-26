@@ -52,7 +52,7 @@ BOOL bodyContainsHTML = true;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    if ([Header isHeaderElement:qName]) {
+    if ([Header isHeaderElement:elementName]) {
         [currentBody replaceOccurrencesOfString:@"\n"
                                      withString:@" "
                                         options:0
@@ -61,7 +61,7 @@ BOOL bodyContainsHTML = true;
                                      withString:@" "
                                         options:0
                                           range:NSMakeRange(0, [currentBody length])];
-        [currentHeader addElementWithName:qName attributes:currentAttributes body:currentBody containsHTML:bodyContainsHTML];
+        [currentHeader addElementWithName:elementName attributes:currentAttributes body:currentBody containsHTML:bodyContainsHTML];
         currentBody = nil;
         bodyContainsHTML = NO;
     } else if (currentBody != nil) {

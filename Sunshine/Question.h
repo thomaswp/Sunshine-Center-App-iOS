@@ -13,6 +13,7 @@
 @property(assign) NSString* answer;
 @property(readonly) NSString* anchor;
 @property(assign) BOOL containsHTML;
+@property(assign) BOOL collapsed;
 
 + (id) questionWithQuestion: (NSString*) question attributes: (NSDictionary*) atts;
 - (id) initithQuestion: (NSString*) question attributes: (NSDictionary*) atts;
