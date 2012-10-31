@@ -40,6 +40,7 @@ BOOL bodyContainsHTML = true;
     } else if (currentBody != nil) {
         NSEnumerator* e = [attributeDict keyEnumerator];
         NSString *key;
+        [currentBody appendFormat:@"<%@", elementName];
         while ((key = [e nextObject]) != nil) {
             [currentBody appendFormat: @" %@=\"%@\"", key, [attributeDict valueForKey:key]];
         }
@@ -58,14 +59,14 @@ BOOL bodyContainsHTML = true;
                                         options:0
                                           range:NSMakeRange(0, [currentBody length])];
         [currentBody replaceOccurrencesOfString:@"\t"
-                                     withString:@" "
+                                     withString:@""
                                         options:0
                                           range:NSMakeRange(0, [currentBody length])];
         [currentHeader addElementWithName:elementName attributes:currentAttributes body:currentBody containsHTML:bodyContainsHTML];
         currentBody = nil;
         bodyContainsHTML = NO;
     } else if (currentBody != nil) {
-        [currentBody appendFormat:@"</%@>", qName];
+        [currentBody appendFormat:@"</%@>", elementName];
     }
 }
 

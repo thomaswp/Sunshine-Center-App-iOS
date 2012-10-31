@@ -59,7 +59,7 @@
 @synthesize table;
 
 
-NSMutableArray* collapsed;
+NSMutableArray* qnas;
 
 - (void)viewDidLoad
 {
@@ -68,12 +68,12 @@ NSMutableArray* collapsed;
     self.table.dataSource = self;
     self.table.delegate = self;
     
-    collapsed = [NSMutableArray arrayWithCapacity:header.questions.count * 2];
+    qnas = [NSMutableArray arrayWithCapacity:header.questions.count * 2];
     for (int i = 0; i < header.questions.count; i++) {
         QRow* row = [QRow rowWithQuestion: [header.questions objectAtIndex:i]];
-        [collapsed addObject: row];
-        [collapsed addObject: [QRow rowWithParent:row]];
-        row.hasQuestion = YES;
+        [qnas addObject: row];
+        //[qnas addObject: [QRow rowWithParent:row]];
+        //row.hasQuestion = YES;
     }
 }
 
@@ -98,24 +98,36 @@ NSMutableArray* collapsed;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [collapsed count];
+    return [qnas count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     int row = indexPath.row;
-    NSString* text = [[collapsed objectAtIndex:row] text];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
-    cell.textLabel.text = text;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.textAlignment = 1;
+    QRow* qRow = [qnas objectAtIndex:row];
+    NSString* text = [qRow text];
+    
+    if ([qRow isQuestion]) {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
+        cell.textLabel.text = text;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.textAlignment = 0;
+    } else {
+        cell.textLabel.font = [UIFont systemFontOfSize: 16];
+        UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
+        webView.backgroundColor = table.backgroundColor;
+        webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        webView.delegate = self;
+        [webView loadHTMLString:qRow.text baseURL:nil];
+        [cell.contentView addSubview:webView];
+    }
     return cell;
 }
 
 -(CGFloat) tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     int row = indexPath.row;
-    NSString* text = [[collapsed objectAtIndex:row] text];
+    NSString* text = [[qnas objectAtIndex:row] text];
     
     CGSize constraint = CGSizeMake(tableView.frame.size.width - (15 * 2), 20000.0f);
     
@@ -132,23 +144,38 @@ NSMutableArray* collapsed;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     int row = indexPath.row;
-    QRow* qRow = [collapsed objectAtIndex:row];
+    QRow* qRow = [qnas objectAtIndex:row];
     if (qRow.isQuestion) {
         NSArray* index = [NSArray arrayWithObject:
                           [NSIndexPath indexPathForRow:row + 1 inSection:0]];
         if (qRow.hasQuestion) {
-            [collapsed removeObjectAtIndex:row + 1];
+            [qnas removeObjectAtIndex:row + 1];
             [tableView deleteRowsAtIndexPaths: index withRowAnimation:UITableViewRowAnimationRight];
             qRow.hasQuestion = NO;
         } else {
             QRow* answer = [QRow rowWithParent:qRow];
-            [collapsed insertObject:answer atIndex:row + 1];
+            [qnas insertObject:answer atIndex:row + 1];
             [tableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationLeft];
             qRow.hasQuestion = YES;
         }
     }
     
     
+}
+
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString* url = request.URL.absoluteString;
+    NSLog(url);
+    if ([url compare:@"about:blank"] == NSOrderedSame) {
+        return YES;
+    }
+    if ([url rangeOfString:@"record://"].location == 0) {
+        //internal link
+    } else {
+        NSURL *url = request.URL;
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    return NO;
 }
 
 @end

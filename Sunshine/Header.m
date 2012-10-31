@@ -48,7 +48,7 @@
         [questions addObject: [Question questionWithQuestion:body attributes:attributes]];
     } else if ([Header isAnswer:qName]) {
         Question* q = [questions objectAtIndex:[questions count] - 1];
-        //q.answer = body;
+        q.answer = body;
         q.containsHTML = html;
     }
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Header.h"
 
-@interface HeaderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HeaderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 @property (strong, nonatomic) Header* header;
 @property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @property (weak, nonatomic) IBOutlet UITableView* table;

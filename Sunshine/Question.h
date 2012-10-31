@@ -10,7 +10,7 @@
 
 @interface Question : NSObject
 @property(readonly) NSString* question;
-@property(assign) NSString* answer;
+@property(retain) NSString* answer;
 @property(readonly) NSString* anchor;
 @property(assign) BOOL containsHTML;
 @property(assign) BOOL collapsed;
