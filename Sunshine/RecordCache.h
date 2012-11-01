@@ -11,4 +11,5 @@
 
 @interface RecordCache : NSObject
 +(Record*) parseRecordWithPath: (NSString*) path;
++(NSString*) getStyle;
 @end

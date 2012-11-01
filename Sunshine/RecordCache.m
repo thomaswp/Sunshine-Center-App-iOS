@@ -12,6 +12,7 @@
 @implementation RecordCache
 
 static NSMutableDictionary* recordCache;
+static NSString* style;
 
 + (void)initialize
 {
@@ -38,6 +39,17 @@ static NSMutableDictionary* recordCache;
     }
     
     return record;
+}
+
++(NSString *)getStyle {
+    if (style == nil) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
+        style = [NSString stringWithFormat:@"<head><style media='screen' type='text/css'>%@</style></head>",
+                 [NSString stringWithContentsOfFile:filePath encoding:NSStringEncodingConversionAllowLossy error:nil ]];
+    }
+        
+    return style;
+    
 }
 
 @end

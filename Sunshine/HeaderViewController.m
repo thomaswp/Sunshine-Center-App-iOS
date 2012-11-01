@@ -9,6 +9,7 @@
 #import "HeaderViewController.h"
 #import "Header.h"
 #import "Question.h"
+#import "RecordCache.h"
 
 
 
@@ -17,29 +18,33 @@
 @property(readonly) NSString* text;
 @property(readonly) BOOL isQuestion;
 @property(assign) BOOL hasQuestion;
+@property(assign) int questionHeight;
+@property(readonly) int index;
 
-+ (id) rowWithQuestion: (Question*) question;
++ (id) rowWithQuestion: (Question*) question andIndex: (int) index;
 + (id) rowWithParent: (QRow*) parent;
 
-- (id) initWithQuestion:(Question*) question isQuestion: (BOOL) q;
+- (id) initWithQuestion:(Question*) question andIndex: (int) index isQuestion: (BOOL) q;
 
 @end
 
 @implementation QRow
 
-@synthesize question, isQuestion;
+@synthesize question, isQuestion, index, questionHeight;
 
-+ (id)rowWithQuestion:(Question *)q {
-    return [[QRow alloc] initWithQuestion:q isQuestion:YES];
++ (id)rowWithQuestion:(Question *)q andIndex: (int) index {
+    return [[QRow alloc] initWithQuestion:q andIndex: index isQuestion:YES];
 }
 
 + (id) rowWithParent:(QRow *)parent {
-    return [[QRow alloc] initWithQuestion:parent.question isQuestion:NO];
+    return [[QRow alloc] initWithQuestion:parent.question andIndex: parent.index isQuestion:NO];
 }
 
-- (id) initWithQuestion:(Question *)q isQuestion:(BOOL)isQ {
+- (id) initWithQuestion:(Question *)q andIndex: (int) idx isQuestion:(BOOL)isQ {
     question = q;
+    index = idx;
     isQuestion = isQ;
+    questionHeight = 50;
     return self;
 }
 
@@ -70,7 +75,7 @@ NSMutableArray* qnas;
     
     qnas = [NSMutableArray arrayWithCapacity:header.questions.count * 2];
     for (int i = 0; i < header.questions.count; i++) {
-        QRow* row = [QRow rowWithQuestion: [header.questions objectAtIndex:i]];
+        QRow* row = [QRow rowWithQuestion: [header.questions objectAtIndex:i] andIndex:i];
         [qnas addObject: row];
         //[qnas addObject: [QRow rowWithParent:row]];
         //row.hasQuestion = YES;
@@ -102,42 +107,70 @@ NSMutableArray* qnas;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     int row = indexPath.row;
     QRow* qRow = [qnas objectAtIndex:row];
     NSString* text = [qRow text];
     
-    if ([qRow isQuestion]) {
-        cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
-        cell.textLabel.text = text;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.textAlignment = 0;
+    NSString* resuseId = qRow.isQuestion ? @"Question" : @"Answer";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:resuseId];
+    UIWebView* webView;
+    if (cell == nil) {
+        NSLog(@"Reuse: %d", row);
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:resuseId];
+        
+        if ([qRow isQuestion]) {
+            cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+            cell.textLabel.textAlignment = 0;
+        } else {
+            //if (qRow.question.containsHTML) {
+                webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
+                webView.backgroundColor = table.backgroundColor;
+                webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+                webView.delegate = self;
+                webView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+                webView.opaque = NO;
+                [cell.contentView addSubview:webView];
+            //}
+        }
     } else {
-        cell.textLabel.font = [UIFont systemFontOfSize: 16];
-        UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
-        webView.backgroundColor = table.backgroundColor;
-        webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        webView.delegate = self;
-        [webView loadHTMLString:qRow.text baseURL:nil];
-        [cell.contentView addSubview:webView];
+        NSLog(@"Gen: %d", row);
     }
+    
+    if ([qRow isQuestion]) {
+        cell.textLabel.text = text;
+    } else {
+        if (webView == nil) {
+            webView = [cell.contentView.subviews objectAtIndex:0];
+        }
+        webView.tag = row;
+        NSString* html = [NSString stringWithFormat:@"%@ %@", [RecordCache getStyle], qRow.text];
+        [webView loadHTMLString:html baseURL:nil];
+    }
+    
+    
     return cell;
 }
 
 -(CGFloat) tableView:(UITableView *) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     int row = indexPath.row;
-    NSString* text = [[qnas objectAtIndex:row] text];
+    //NSLog(@"Height: %d", row);
+    QRow* qRow = [qnas objectAtIndex:row];
     
-    CGSize constraint = CGSizeMake(tableView.frame.size.width - (15 * 2), 20000.0f);
-    
-    UIFont* font =  [UIFont boldSystemFontOfSize: 17];
-    int height = [text sizeWithFont: font
-                  constrainedToSize: constraint
-                      lineBreakMode: UILineBreakModeWordWrap].height;
-    font = nil;
-    
-    return height + 20;
+    if (qRow.isQuestion) {
+        NSString* text = [qRow text];
+        CGSize constraint = CGSizeMake(tableView.frame.size.width - (15 * 2), 20000.0f);
+        UIFont* font =  [UIFont boldSystemFontOfSize: 17];
+        int height = [text sizeWithFont: font
+                      constrainedToSize: constraint
+                          lineBreakMode: UILineBreakModeWordWrap].height;
+        font = nil;
+        return height + 20;
+    } else {
+        return qRow.questionHeight;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,7 +198,7 @@ NSMutableArray* qnas;
 
 -(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString* url = request.URL.absoluteString;
-    NSLog(url);
+    //NSLog(url);
     if ([url compare:@"about:blank"] == NSOrderedSame) {
         return YES;
     }
@@ -176,6 +209,26 @@ NSMutableArray* qnas;
         [[UIApplication sharedApplication] openURL:url];
     }
     return NO;
+}
+
+- (void) webViewDidFinishLoad:(UIWebView *)webView {
+    QRow* qRow = [qnas objectAtIndex: webView.tag];
+    
+//    CGRect frame = webView.frame;
+//    frame.size.height = 1;
+//    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+//    frame.size = fittingSize;
+//    webView.frame = frame;
+    
+    int height = fittingSize.height + 3;
+    
+    qRow.questionHeight = height + 20;
+    NSLog(@"Row #%d: %f", webView.tag, fittingSize.height);
+    [table beginUpdates];
+    [table endUpdates];
+    
+    webView.frame = CGRectMake(10, 10, 300, height);
 }
 
 @end

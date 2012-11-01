@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DBC3091164302F900F69154 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC3090164302F900F69154 /* style.css */; };
+		9DBC309716430BB000F69154 /* seekers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC309416430BB000F69154 /* seekers.xml */; };
+		9DBC309816430BB000F69154 /* laws.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC309516430BB000F69154 /* laws.xml */; };
+		9DBC309916430BB000F69154 /* holders.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DBC309616430BB000F69154 /* holders.xml */; };
 		9DC2316B1604F167009C5B34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316A1604F167009C5B34 /* UIKit.framework */; };
 		9DC2316D1604F167009C5B34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316C1604F167009C5B34 /* Foundation.framework */; };
 		9DC2316F1604F167009C5B34 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC2316E1604F167009C5B34 /* CoreGraphics.framework */; };
@@ -25,9 +29,9 @@
 		9DDD92D41604F7D800AADF44 /* StoryboardMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92D31604F7D800AADF44 /* StoryboardMain.storyboard */; };
 		9DDD92D61604FE3900AADF44 /* logo_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92D51604FE3900AADF44 /* logo_trans.png */; };
 		9DDD92DE1605068000AADF44 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92DC1605068000AADF44 /* RecordViewController.m */; };
-		9DDD92E3160508C600AADF44 /* holders.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E0160508C600AADF44 /* holders.xml */; };
-		9DDD92E4160508C600AADF44 /* laws.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E1160508C600AADF44 /* laws.xml */; };
-		9DDD92E5160508C600AADF44 /* seekers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E2160508C600AADF44 /* seekers.xml */; };
+		9DDD92E3160508C600AADF44 /* holders_old.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E0160508C600AADF44 /* holders_old.xml */; };
+		9DDD92E4160508C600AADF44 /* laws_old.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E1160508C600AADF44 /* laws_old.xml */; };
+		9DDD92E5160508C600AADF44 /* seekers_old.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD92E2160508C600AADF44 /* seekers_old.xml */; };
 		9DDD92E8160509C600AADF44 /* RecordCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92E7160509C600AADF44 /* RecordCache.m */; };
 		9DDD92EB16050A8F00AADF44 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92EA16050A8F00AADF44 /* Record.m */; };
 		9DDD92EE160510B400AADF44 /* RecordParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD92ED160510B400AADF44 /* RecordParserDelegate.m */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9DBC3090164302F900F69154 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		9DBC309416430BB000F69154 /* seekers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = seekers.xml; sourceTree = "<group>"; };
+		9DBC309516430BB000F69154 /* laws.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = laws.xml; sourceTree = "<group>"; };
+		9DBC309616430BB000F69154 /* holders.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = holders.xml; sourceTree = "<group>"; };
 		9DC231661604F167009C5B34 /* Sunshine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunshine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC2316A1604F167009C5B34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9DC2316C1604F167009C5B34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,9 +82,9 @@
 		9DDD92D51604FE3900AADF44 /* logo_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_trans.png; sourceTree = "<group>"; };
 		9DDD92DB1605068000AADF44 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = ../RecordViewController.h; sourceTree = "<group>"; };
 		9DDD92DC1605068000AADF44 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = ../RecordViewController.m; sourceTree = "<group>"; };
-		9DDD92E0160508C600AADF44 /* holders.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = holders.xml; sourceTree = "<group>"; };
-		9DDD92E1160508C600AADF44 /* laws.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = laws.xml; sourceTree = "<group>"; };
-		9DDD92E2160508C600AADF44 /* seekers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = seekers.xml; sourceTree = "<group>"; };
+		9DDD92E0160508C600AADF44 /* holders_old.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = holders_old.xml; sourceTree = "<group>"; };
+		9DDD92E1160508C600AADF44 /* laws_old.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = laws_old.xml; sourceTree = "<group>"; };
+		9DDD92E2160508C600AADF44 /* seekers_old.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = seekers_old.xml; sourceTree = "<group>"; };
 		9DDD92E6160509C600AADF44 /* RecordCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCache.h; sourceTree = "<group>"; };
 		9DDD92E7160509C600AADF44 /* RecordCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCache.m; sourceTree = "<group>"; };
 		9DDD92E916050A8F00AADF44 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
@@ -115,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DBC309316430AAE00F69154 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD92E0160508C600AADF44 /* holders_old.xml */,
+				9DDD92E1160508C600AADF44 /* laws_old.xml */,
+				9DDD92E2160508C600AADF44 /* seekers_old.xml */,
+			);
+			name = old;
+			sourceTree = "<group>";
+		};
 		9DC2315B1604F167009C5B34 = {
 			isa = PBXGroup;
 			children = (
@@ -190,9 +208,11 @@
 		9DDD92D71604FE3E00AADF44 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9DDD92E0160508C600AADF44 /* holders.xml */,
-				9DDD92E1160508C600AADF44 /* laws.xml */,
-				9DDD92E2160508C600AADF44 /* seekers.xml */,
+				9DBC309416430BB000F69154 /* seekers.xml */,
+				9DBC309516430BB000F69154 /* laws.xml */,
+				9DBC309616430BB000F69154 /* holders.xml */,
+				9DBC309316430AAE00F69154 /* old */,
+				9DBC3090164302F900F69154 /* style.css */,
 				9DDD92D51604FE3900AADF44 /* logo_trans.png */,
 			);
 			name = Resources;
@@ -311,9 +331,13 @@
 				9DC2319E1604F345009C5B34 /* hours.txt in Resources */,
 				9DDD92D41604F7D800AADF44 /* StoryboardMain.storyboard in Resources */,
 				9DDD92D61604FE3900AADF44 /* logo_trans.png in Resources */,
-				9DDD92E3160508C600AADF44 /* holders.xml in Resources */,
-				9DDD92E4160508C600AADF44 /* laws.xml in Resources */,
-				9DDD92E5160508C600AADF44 /* seekers.xml in Resources */,
+				9DDD92E3160508C600AADF44 /* holders_old.xml in Resources */,
+				9DDD92E4160508C600AADF44 /* laws_old.xml in Resources */,
+				9DDD92E5160508C600AADF44 /* seekers_old.xml in Resources */,
+				9DBC3091164302F900F69154 /* style.css in Resources */,
+				9DBC309716430BB000F69154 /* seekers.xml in Resources */,
+				9DBC309816430BB000F69154 /* laws.xml in Resources */,
+				9DBC309916430BB000F69154 /* holders.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
