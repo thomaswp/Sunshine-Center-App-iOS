@@ -10,5 +10,10 @@
 
 @interface MainViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton* buttonPhone;
+@property (weak, nonatomic) IBOutlet UIButton* buttonEmail;
+@property (weak, nonatomic) IBOutlet UIButton* buttonFacebook;
+@property (weak, nonatomic) IBOutlet UIButton* buttonTwitter;
+@property (weak, nonatomic) IBOutlet UIButton* buttonSunshine;
 
 @end
