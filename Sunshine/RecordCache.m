@@ -14,6 +14,14 @@
 static NSMutableDictionary* recordCache;
 static NSString* style;
 
+NSString* const RECORDS[] = {
+    @"seekers",
+    @"holders",
+    @"laws"
+};
+
+int const NUM_RECORDS = 3;
+
 + (void)initialize
 {
     static BOOL initialized = NO;

@@ -19,6 +19,10 @@
     return [[Header alloc] initWithAttributes:attributes];
 }
 
++(id) headerWithTitle:(NSString *) title {
+    return [[Header alloc] initWithTitle: title];
+}
+
 +(BOOL) isHeader:(NSString *)qName {
     return [qName caseInsensitiveCompare:@"header"] == NSOrderedSame;
 }
@@ -36,10 +40,15 @@
 }
 
 -(id) initWithAttributes:(NSDictionary *)attributes {
+    return [self initWithTitle:[attributes valueForKey:@"title"]];
+}
+
+-(id) initWithTitle:(NSString *) myTitle {
     self = [super init];
-    title = [attributes valueForKey:@"title"];
+    title = myTitle;
     questions = [NSMutableArray array];
     return self;
+    
 }
 
 -(void) addElementWithName:(NSString *)qName attributes:(NSDictionary *)attributes body:(NSString *)body containsHTML:(BOOL)html {

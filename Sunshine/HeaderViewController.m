@@ -115,7 +115,6 @@ NSMutableArray* qnas;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:resuseId];
     UIWebView* webView;
     if (cell == nil) {
-        NSLog(@"Reuse: %d", row);
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:resuseId];
         
@@ -125,18 +124,18 @@ NSMutableArray* qnas;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.textAlignment = 0;
         } else {
-            //if (qRow.question.containsHTML) {
-                webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
-                webView.backgroundColor = table.backgroundColor;
-                webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-                webView.delegate = self;
-                webView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
-                webView.opaque = NO;
-                [cell.contentView addSubview:webView];
-            //}
+            webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
+            webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            webView.delegate = self;
+            webView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+            webView.opaque = NO;
+            [cell.contentView addSubview:webView];
+        
+            UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+            bgview.opaque = YES;
+            bgview.backgroundColor = [UIColor colorWithRed:253/255.0f green:249/255.0f blue:227/255.0f alpha:1];
+            [cell setBackgroundView:bgview];
         }
-    } else {
-        NSLog(@"Gen: %d", row);
     }
     
     if ([qRow isQuestion]) {

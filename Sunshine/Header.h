@@ -14,12 +14,14 @@
 @property(readonly) NSMutableArray* questions;
 
 +(id) headerWithAttributes: (NSDictionary*) attributes;
++(id) headerWithTitle: (NSString*) title;
 +(BOOL) isHeader: (NSString*) qName;
 +(BOOL) isHeaderElement: (NSString*) qName;
 +(BOOL) isQuestion: (NSString*) qName;
 +(BOOL) isAnswer: (NSString*) qName;
 
 -(id) initWithAttributes: (NSDictionary*) attributes;
+-(id) initWithTitle: (NSString*) title;
 -(void) addElementWithName: (NSString*) qName attributes: (NSDictionary*) attributes body: (NSString*) body containsHTML: (BOOL) html;
 
 @end

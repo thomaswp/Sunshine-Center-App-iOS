@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "RecordViewController.h"
+#import "RecordCache.h"
 
 @interface MainViewController ()
 
@@ -72,13 +73,10 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSString* file = nil;
-    switch ([sender tag]) {
-        case 0: file = @"seekers"; break;
-        case 1: file = @"holders"; break;
-        case 2: file = @"laws"; break;
-    }
-    if (file != nil) {
+    int tag = [sender tag];
+    
+    if ([sender tag] < NUM_RECORDS) {
+        NSString* file = [NSString stringWithString: RECORDS[tag]];
         [segue.destinationViewController setRecordName: file];
     }
 }

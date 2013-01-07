@@ -10,6 +10,9 @@
 #import "Record.h"
 
 @interface RecordCache : NSObject
+extern NSString* const RECORDS[];
+extern int const NUM_RECORDS;
+
 +(Record*) parseRecordWithPath: (NSString*) path;
 +(NSString*) getStyle;
 @end
