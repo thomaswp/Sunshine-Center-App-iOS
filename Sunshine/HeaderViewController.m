@@ -14,30 +14,43 @@
 
 
 @interface QRow : NSObject
+
 @property(readonly) Question* question;
 @property(readonly) NSString* text;
 @property(readonly) BOOL isQuestion;
 @property(assign) BOOL hasQuestion;
 @property(assign) int questionHeight;
 @property(readonly) int index;
+@property(readonly) NSMutableString* mQuestion;
+@property(readonly) NSMutableString* mAnswer;
 
 + (id) rowWithQuestion: (Question*) question andIndex: (int) index;
 + (id) rowWithParent: (QRow*) parent;
 
+- (id) initWithParent:(QRow*) parent;
 - (id) initWithQuestion:(Question*) question andIndex: (int) index isQuestion: (BOOL) q;
+- (void) applySearchString:(NSString*) searchString;
 
 @end
 
 @implementation QRow
 
-@synthesize question, isQuestion, index, questionHeight;
+@synthesize question, isQuestion, index, questionHeight, mQuestion, mAnswer;
+
 
 + (id)rowWithQuestion:(Question *)q andIndex: (int) index {
     return [[QRow alloc] initWithQuestion:q andIndex: index isQuestion:YES];
 }
 
 + (id) rowWithParent:(QRow *)parent {
-    return [[QRow alloc] initWithQuestion:parent.question andIndex: parent.index isQuestion:NO];
+    return [[QRow alloc] initWithParent: parent];
+}
+
+- (id) initWithParent:(QRow *)parent {
+    self = [self initWithQuestion:parent.question andIndex: parent.index isQuestion:NO];
+    mQuestion = parent.mQuestion;
+    mAnswer = parent.mAnswer;
+    return self;
 }
 
 - (id) initWithQuestion:(Question *)q andIndex: (int) idx isQuestion:(BOOL)isQ {
@@ -45,11 +58,25 @@
     index = idx;
     isQuestion = isQ;
     questionHeight = 50;
+    mQuestion = [NSMutableString stringWithString:question.question];
+    mAnswer = [NSMutableString stringWithString:question.answer];
     return self;
 }
 
+- (void) applySearchString:(NSString *)searchString {
+    NSRegularExpression* pattern = [NSRegularExpression
+                                    regularExpressionWithPattern:searchString
+                                                         options:NSRegularExpressionCaseInsensitive
+                                                           error:nil];
+    
+    [pattern replaceMatchesInString:mQuestion options:0 range:NSMakeRange(0, mQuestion.length) withTemplate:@"<b>$0</b>"];
+    [pattern replaceMatchesInString:mAnswer options:0 range:NSMakeRange(0, mAnswer.length) withTemplate:@"<b>$0</b>"];
+    
+    
+}
+
 - (NSString*) text {
-    return isQuestion ? question.question : question.answer;
+    return isQuestion ? mQuestion : mAnswer;
 }
 @end
 
@@ -62,7 +89,7 @@
 
 @synthesize header;
 @synthesize table;
-
+@synthesize searchString;
 
 NSMutableArray* qnas;
 
@@ -76,9 +103,10 @@ NSMutableArray* qnas;
     qnas = [NSMutableArray arrayWithCapacity:header.questions.count * 2];
     for (int i = 0; i < header.questions.count; i++) {
         QRow* row = [QRow rowWithQuestion: [header.questions objectAtIndex:i] andIndex:i];
+        if (searchString != nil) {
+            [row applySearchString: searchString];
+        }
         [qnas addObject: row];
-        //[qnas addObject: [QRow rowWithParent:row]];
-        //row.hasQuestion = YES;
     }
 }
 
@@ -99,7 +127,7 @@ NSMutableArray* qnas;
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return nil;//header.title;
+    return nil;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -144,8 +172,9 @@ NSMutableArray* qnas;
         if (webView == nil) {
             webView = [cell.contentView.subviews objectAtIndex:0];
         }
+        NSLog(text);
         webView.tag = row;
-        NSString* html = [NSString stringWithFormat:@"%@ %@", [RecordCache getStyle], qRow.text];
+        NSString* html = [NSString stringWithFormat:@"%@ %@", [RecordCache getStyle], text];
         [webView loadHTMLString:html baseURL:nil];
     }
     
@@ -213,17 +242,11 @@ NSMutableArray* qnas;
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     QRow* qRow = [qnas objectAtIndex: webView.tag];
     
-//    CGRect frame = webView.frame;
-//    frame.size.height = 1;
-//    webView.frame = frame;
     CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
-//    frame.size = fittingSize;
-//    webView.frame = frame;
     
     int height = fittingSize.height + 3;
     
     qRow.questionHeight = height + 20;
-    NSLog(@"Row #%d: %f", webView.tag, fittingSize.height);
     [table beginUpdates];
     [table endUpdates];
     

@@ -18,6 +18,7 @@
 
 int const MAX_RESULTS = 15;
 NSString* const RESERVED = @"b,i,a,ul,ol,li";
+NSMutableString* searchString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,7 +61,7 @@ NSString* const RESERVED = @"b,i,a,ul,ol,li";
     NSString* title = [NSString stringWithFormat:@"Search: %@", originalQuery];
     Header* results = [Header headerWithTitle: title];
     
-    NSMutableString* patternString = [NSMutableString stringWithString:@""];
+    searchString = [NSMutableString stringWithString:@""];
     NSArray* words = [query componentsSeparatedByString:@" "];
     
     for (int i = 0; i < words.count; i++) {
@@ -68,15 +69,15 @@ NSString* const RESERVED = @"b,i,a,ul,ol,li";
         if (word.length == 0) continue;
         if ([RESERVED rangeOfString:word].location != NSNotFound) continue;
         
-        [patternString appendFormat:@"\\b%@\\b", word];
-        if (i < words.count - 1) [patternString appendString:@"|"];
+        [searchString appendFormat:@"\\b%@\\b", word];
+        if (i < words.count - 1) [searchString appendString:@"|"];
         
     }
     
-    if (patternString.length == 0) return;
+    if (searchString.length == 0) return;
     
     NSRegularExpression *pattern = [NSRegularExpression
-                                  regularExpressionWithPattern:patternString
+                                  regularExpressionWithPattern:searchString
                                   options:NSRegularExpressionCaseInsensitive
                                   error: nil];
     
@@ -116,6 +117,7 @@ NSString* const RESERVED = @"b,i,a,ul,ol,li";
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [segue.destinationViewController setSearchString: searchString];
     [segue.destinationViewController setHeader: sender];
 }
 

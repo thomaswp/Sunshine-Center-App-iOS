@@ -11,6 +11,7 @@
 
 @interface HeaderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 @property (strong, nonatomic) Header* header;
+@property (strong, nonatomic) NSString* searchString;
 @property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @property (weak, nonatomic) IBOutlet UITableView* table;
 
