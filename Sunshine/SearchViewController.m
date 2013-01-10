@@ -81,6 +81,8 @@ NSMutableString* searchString;
                                   options:NSRegularExpressionCaseInsensitive
                                   error: nil];
     
+    NSMutableDictionary* weights = [[NSMutableDictionary alloc] initWithCapacity:1];
+    
     for (int i = 0; i < NUM_RECORDS; i++) {
         Record* record = [RecordCache parseRecordWithPath:RECORDS[i]];
         for (int j = 0; j < record.sections.count; j++)
@@ -101,11 +103,15 @@ NSMutableString* searchString;
                     
                     if (weight > 0) {
                         [results.questions addObject:question];
+                        NSNumber* numWeight = [[NSNumber alloc] initWithInt:weight];
+                        [weights setObject:numWeight forKey:question];
                     }
                 }
             }
         }
     }
+    
+    //[results.questions sortUsingFunction:SortQuestions context:(__bridge void *)(weights)];
     
     while (results.questions.count > MAX_RESULTS) {
         [results.questions removeLastObject];
@@ -114,6 +120,12 @@ NSMutableString* searchString;
     if (results.questions.count > 0) {
         [self performSegueWithIdentifier:@"push" sender:results];
     }
+}
+
+NSInteger SortQuestions(id q1, id q2, void *context) {
+    NSLog(@"!!");
+    NSDictionary* weights = (__bridge NSDictionary*)context;
+    return [[weights objectForKey:q1] compare:[weights objectForKey:q2]];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

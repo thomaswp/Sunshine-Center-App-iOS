@@ -11,8 +11,6 @@
 #import "Question.h"
 #import "RecordCache.h"
 
-
-
 @interface QRow : NSObject
 
 @property(readonly) Question* question;
@@ -69,7 +67,7 @@
                                                          options:NSRegularExpressionCaseInsensitive
                                                            error:nil];
     
-    [pattern replaceMatchesInString:mQuestion options:0 range:NSMakeRange(0, mQuestion.length) withTemplate:@"<b>$0</b>"];
+    //[pattern replaceMatchesInString:mQuestion options:0 range:NSMakeRange(0, mQuestion.length) withTemplate:@"<b>$0</b>"];
     [pattern replaceMatchesInString:mAnswer options:0 range:NSMakeRange(0, mAnswer.length) withTemplate:@"<b>$0</b>"];
     
     
@@ -141,7 +139,8 @@ NSMutableArray* qnas;
     
     NSString* resuseId = qRow.isQuestion ? @"Question" : @"Answer";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:resuseId];
-    UIWebView* webView;
+    UIWebView* webView = nil;
+//    OHAttributedLabel* label = nil;
     if (cell == nil) {
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:resuseId];
@@ -151,6 +150,14 @@ NSMutableArray* qnas;
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.textAlignment = 0;
+            
+//            label = [[OHAttributedLabel alloc] initWithFrame:
+//                                        CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+//            label.numberOfLines = 0;
+//            label.lineBreakMode = UILineBreakModeWordWrap;
+//            label.textAlignment = 0;
+//            [cell.contentView addSubview: label];
+            
         } else {
             webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
             webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -168,11 +175,11 @@ NSMutableArray* qnas;
     
     if ([qRow isQuestion]) {
         cell.textLabel.text = text;
+        
     } else {
         if (webView == nil) {
             webView = [cell.contentView.subviews objectAtIndex:0];
         }
-        NSLog(text);
         webView.tag = row;
         NSString* html = [NSString stringWithFormat:@"%@ %@", [RecordCache getStyle], text];
         [webView loadHTMLString:html baseURL:nil];

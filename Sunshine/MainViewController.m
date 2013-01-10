@@ -28,6 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+//    OHAttributedLabel* label = [[OHAttributedLabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    label.attributedText = [OHASBasicHTMLParser attributedStringByProcessingMarkupInString:@"Hello <b>you</b>!"];
+//    label.centerVertically = YES;
+//    [window addSubview:label];
 }
 
 - (void)viewDidUnload
