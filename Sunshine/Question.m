@@ -10,16 +10,17 @@
 
 @implementation Question
 
-@synthesize question, answer, containsHTML, anchor;
+@synthesize question, answer, containsHTML, anchor, tempWeight, parent;
 
-+ (id)questionWithQuestion:(NSString *)question attributes:(NSDictionary *)atts {
-    return [[Question alloc] initithQuestion:question attributes:atts];
++ (id)questionWithQuestion:(NSString *)question attributes:(NSDictionary *)atts andParent:(Header*)parent{
+    return [[Question alloc] initithQuestion:question attributes:atts andParent:parent];
 }
 
-- (id) initithQuestion:(NSString *)q attributes:(NSDictionary *)atts {
+- (id) initithQuestion:(NSString *)q attributes:(NSDictionary *)atts andParent:(Header*)p {
     question = q;
     answer = @"";
     anchor = [atts objectForKey:@"anchor"];
+    parent = p;
     
     return self;
 }

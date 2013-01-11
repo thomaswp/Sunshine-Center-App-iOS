@@ -54,7 +54,7 @@
 -(void) addElementWithName:(NSString *)qName attributes:(NSDictionary *)attributes body:(NSString *)body containsHTML:(BOOL)html {
     body = [Record removeSpecialCharacters: body];
     if ([Header isQuestion:qName]) {
-        [questions addObject: [Question questionWithQuestion:body attributes:attributes]];
+        [questions addObject: [Question questionWithQuestion:body attributes:attributes andParent: self]];
     } else if ([Header isAnswer:qName]) {
         Question* q = [questions objectAtIndex:[questions count] - 1];
         q.answer = body;
