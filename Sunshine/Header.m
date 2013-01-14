@@ -14,6 +14,7 @@
 
 @synthesize questions;
 @synthesize title;
+@synthesize tip;
 
 +(id) headerWithAttributes:(NSDictionary *)attributes {
     return [[Header alloc] initWithAttributes:attributes];
@@ -40,7 +41,9 @@
 }
 
 -(id) initWithAttributes:(NSDictionary *)attributes {
-    return [self initWithTitle:[attributes valueForKey:@"title"]];
+    Header* me = [self initWithTitle:[attributes valueForKey:@"title"]];
+    tip = [attributes valueForKey:@"tip"];
+    return me;
 }
 
 -(id) initWithTitle:(NSString *) myTitle {

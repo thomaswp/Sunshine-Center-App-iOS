@@ -10,6 +10,7 @@
 #import "Header.h"
 #import "Question.h"
 #import "RecordCache.h"
+#import "RecordViewController.h"
 
 @interface QRow : NSObject
 
@@ -55,6 +56,10 @@
     //[pattern replaceMatchesInString:mQuestion options:0 range:NSMakeRange(0, mQuestion.length) withTemplate:@"<b>$0</b>"];
     [pattern replaceMatchesInString:mAnswer options:0 range:NSMakeRange(0, mAnswer.length) withTemplate:@"<b>$0</b>"];
     
+//    NSRegularExpression* unBoldURL = [NSRegularExpression
+//                                        regularExpressionWithPattern:@"<a"
+//                                                             options:NSRegularExpressionCaseInsensitive
+//                                                               error:nil];
     
 }
 
@@ -70,13 +75,16 @@
 @synthesize header;
 @synthesize table;
 @synthesize searchString;
-
-NSMutableArray* qnas;
+@synthesize reloadButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.navItem.title = header.title;
+	[self setup];
+}
+
+- (void) setup {
+    self.navItem.title = header.title;
     self.table.dataSource = self;
     self.table.delegate = self;
     
@@ -89,7 +97,6 @@ NSMutableArray* qnas;
         [qnas addObject: row];
     }
 }
-
 
 - (void)viewDidUnload
 {
@@ -108,12 +115,15 @@ NSMutableArray* qnas;
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (searchString == nil) return nil;
-    QRow* qRow = [qnas objectAtIndex:section];
-    NSString* title = qRow.question.parent.title;
-    if (section == 0) return title;
-    QRow* previous = [qnas objectAtIndex:section - 1];
-    if (previous.question.parent != qRow.question.parent) return title;
+    if (searchString == nil)  {
+        if (section == 0) return header.tip;
+    } else {
+        QRow* qRow = [qnas objectAtIndex:section];
+        NSString* title = qRow.question.parent.title;
+        if (section == 0) return title;
+        QRow* previous = [qnas objectAtIndex:section - 1];
+        if (previous.question.parent != qRow.question.parent) return title;
+    }
     return nil;
 }
 
@@ -214,16 +224,75 @@ NSMutableArray* qnas;
 
 -(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString* url = request.URL.absoluteString;
+    url = [url stringByReplacingOccurrencesOfString:@"<b>" withString:@""];
+    url = [url stringByReplacingOccurrencesOfString:@"</b>" withString:@""];
+    NSLog(@"%@", url);
     if ([url compare:@"about:blank"] == NSOrderedSame) {
         return YES;
     }
     if ([url rangeOfString:@"record://"].location == 0) {
-        //internal link
+        [self internalLinkWithURL:url];
     } else {
         NSURL *url = request.URL;
         [[UIApplication sharedApplication] openURL:url];
     }
     return NO;
+}
+
+- (void) internalLinkWithURL: (NSString*) url {
+    url = [url stringByReplacingOccurrencesOfString:@"record://" withString:@""];
+    NSArray* sections = [url componentsSeparatedByString:@"."];
+    if (sections.count > 0) {
+        NSString* recordName = [sections objectAtIndex:0];
+        
+        if (sections.count == 1) {
+            [self performSegueWithIdentifier:@"pushRecord" sender:recordName];
+        } else {
+            Record* linkRecord = [RecordCache parseRecordWithPath:recordName];
+            if (linkRecord != nil) {
+                NSString* headerName = [sections objectAtIndex:1];
+                Header* linkHeader = nil;
+                for (int i = 0; i < linkRecord.sections.count; i++) {
+                    Section* s = [linkRecord.sections objectAtIndex:i];
+                    for (int j = 0; j < s.headers.count; j++) {
+                        Header* h = [s.headers objectAtIndex:j];
+                        NSString* camelTitle = [h.title stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        if ([camelTitle caseInsensitiveCompare:headerName] == NSOrderedSame) {
+                            linkHeader = h;
+                            break;
+                        }
+                    }
+                    if (linkHeader != nil) break;
+                }
+                
+                if (linkHeader != nil) {
+                    if (linkHeader != self.header) {
+                         [self performSegueWithIdentifier:@"pushHeader" sender:linkHeader];
+                    }
+                    
+                    if (sections.count > 2) {
+                        NSString* questionName = [sections objectAtIndex:2];
+                        //Open Question
+                        
+                    }
+                } else {
+                    NSLog(@"No header: %@", headerName);
+                }
+            } else {
+                NSLog(@"No record: %@", recordName);
+            }
+        }
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (sender != nil) {
+        if ([sender isKindOfClass:[NSString class]]) {
+            [segue.destinationViewController setRecordName: sender];
+        } else if ([sender isKindOfClass:[Header class]]) {
+            [segue.destinationViewController setHeader: sender];
+        }
+    }
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {

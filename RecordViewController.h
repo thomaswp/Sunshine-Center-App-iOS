@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Record.h"
 
-@interface RecordViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface RecordViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+    Record* record;
+}
+
 @property (strong, nonatomic) NSString *recordName;
 @property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @property (weak, nonatomic) IBOutlet UITableView* table;

@@ -17,8 +17,6 @@
 
 @implementation RecordViewController
 
-Record* record;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

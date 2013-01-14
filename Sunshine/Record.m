@@ -22,11 +22,11 @@
 }
 
 +(NSString*) removeSpecialCharacters:(NSString *)text {
-    text = [text  stringByReplacingOccurrencesOfString:@"‚Äù" withString:@"\""];
-    text = [text  stringByReplacingOccurrencesOfString:@"‚Äò" withString:@"'"];
-    text = [text  stringByReplacingOccurrencesOfString:@"‚Äô" withString:@"'"];
-    text = [text  stringByReplacingOccurrencesOfString:@"‚Äì" withString:@"-"];
-    text = [text  stringByReplacingOccurrencesOfString:@"‚Äë" withString:@"-"];
+//    text = [text  stringByReplacingOccurrencesOfString:@"‚Äù" withString:@"\""];
+//    text = [text  stringByReplacingOccurrencesOfString:@"‚Äò" withString:@"'"];
+//    text = [text  stringByReplacingOccurrencesOfString:@"‚Äô" withString:@"'"];
+//    text = [text  stringByReplacingOccurrencesOfString:@"‚Äì" withString:@"-"];
+//    text = [text  stringByReplacingOccurrencesOfString:@"‚Äë" withString:@"-"];
     return text;
 }
 

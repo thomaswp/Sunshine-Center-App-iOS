@@ -62,7 +62,8 @@ BOOL bodyContainsHTML = true;
                                      withString:@""
                                         options:0
                                           range:NSMakeRange(0, [currentBody length])];
-        [currentHeader addElementWithName:elementName attributes:currentAttributes body:currentBody containsHTML:bodyContainsHTML];
+        NSString* trimmed = [currentBody stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+        [currentHeader addElementWithName:elementName attributes:currentAttributes body:trimmed containsHTML:bodyContainsHTML];
         currentBody = nil;
         bodyContainsHTML = NO;
     } else if (currentBody != nil) {

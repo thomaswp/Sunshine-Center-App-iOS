@@ -11,6 +11,7 @@
 @interface Header : NSObject
 
 @property(readonly) NSString* title;
+@property(readonly) NSString* tip;
 @property(readonly) NSMutableArray* questions;
 
 +(id) headerWithAttributes: (NSDictionary*) attributes;

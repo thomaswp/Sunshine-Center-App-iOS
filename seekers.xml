@@ -3,7 +3,7 @@
 	<section title="Public Records">
 		<header title="Public Records Law">
 			<q>What is a public record?</q>
-			<an>The term includes paper records, of course. Correspondence,
+			<an>The <a href="record://laws" >term</a> includes paper records, of course. Correspondence,
 				reports, minutes of meetings, hand written notes, phone messages,
 				and so forth. But it also includes maps, photographs, audio and
 				video recordings, e-mail, databases, and spread sheets created or
@@ -19,7 +19,7 @@
 				should assume that any record you want is a public record.</an>
 			<q>Do the media have more rights to public records than citizens?</q>
 			<an>No, and we don't want any. Everybody has the right to examine and
-				obtain copies of almost all public records. And you're not required
+				obtain copies of almost all public records. And you're not requiredrecord:
 				to say why you want the record or what you plan to do with it
 				either.</an>
 			<q>Whom should you ask for a public record?</q>
