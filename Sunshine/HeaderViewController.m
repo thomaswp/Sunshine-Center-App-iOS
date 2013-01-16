@@ -56,11 +56,13 @@
     //[pattern replaceMatchesInString:mQuestion options:0 range:NSMakeRange(0, mQuestion.length) withTemplate:@"<b>$0</b>"];
     [pattern replaceMatchesInString:mAnswer options:0 range:NSMakeRange(0, mAnswer.length) withTemplate:@"<b>$0</b>"];
     
-//    NSRegularExpression* unBoldURL = [NSRegularExpression
-//                                        regularExpressionWithPattern:@"<a"
-//                                                             options:NSRegularExpressionCaseInsensitive
-//                                                               error:nil];
-    
+    NSRegularExpression* unBoldURL = [NSRegularExpression
+                                        regularExpressionWithPattern:@"(<a[^>]+)<b>([^>]*)</b>([^>]+>)"
+                                                             options:NSRegularExpressionCaseInsensitive
+                                                               error:nil];
+
+    [unBoldURL replaceMatchesInString:mAnswer options:0 range:NSMakeRange(0, mAnswer.length) withTemplate:@"$1$2$3"];
+
 }
 
 @end
@@ -76,6 +78,10 @@
 @synthesize table;
 @synthesize searchString;
 @synthesize reloadButton;
+@synthesize questionAnchor;
+
+const int PADDING = 10;
+const int FONT_SIZE = 17;
 
 - (void)viewDidLoad
 {
@@ -95,6 +101,10 @@
             [row applySearchString: searchString];
         }
         [qnas addObject: row];
+    }
+    
+    if (questionAnchor != nil) {
+        [self openQuestion:questionAnchor];
     }
 }
 
@@ -146,13 +156,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:resuseId];
         
         if (isQuestion) {
-            cell.textLabel.font = [UIFont boldSystemFontOfSize: 17];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize: FONT_SIZE];
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.textAlignment = 0;
             
         } else {
-            webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 300, 1)];
+            webView = [[UIWebView alloc] initWithFrame:CGRectMake(PADDING, PADDING, table.frame.size.width - PADDING * 2, 1)];
             webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
             webView.delegate = self;
             webView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
@@ -189,13 +199,13 @@
     
     if (isQuestion) {
         NSString* text = qRow.mQuestion;
-        CGSize constraint = CGSizeMake(tableView.frame.size.width - (15 * 2), 20000.0f);
-        UIFont* font =  [UIFont boldSystemFontOfSize: 17];
+        CGSize constraint = CGSizeMake(tableView.frame.size.width - (PADDING * 2), 20000.0f);
+        UIFont* font =  [UIFont boldSystemFontOfSize: FONT_SIZE];
         int height = [text sizeWithFont: font
                       constrainedToSize: constraint
                           lineBreakMode: UILineBreakModeWordWrap].height;
         font = nil;
-        return height + 20;
+        return height + PADDING * 2;
     } else {
         return qRow.questionHeight;
     }
@@ -205,28 +215,35 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     QRow* qRow = [qnas objectAtIndex: indexPath.section];
-    
-    bool isQuestion = indexPath.row == 0;
-    
-    if (isQuestion) {
-        
-        NSIndexPath* index = [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
+    if (qRow.extended) {
+        [self closeRow:indexPath.section];
+    } else {
+        [self openRow:indexPath.section];
+    }
+}
+
+- (void) openRow: (int) row {
+    QRow* qRow = [qnas objectAtIndex: row];
+    if (!qRow.extended) {
+        NSIndexPath* index = [NSIndexPath indexPathForRow:1 inSection:row];
         NSArray* indices = [NSArray arrayWithObject: index];
-        bool extended = qRow.extended;
-        qRow.extended = !extended;
-        if (extended) {
-            [tableView deleteRowsAtIndexPaths: indices withRowAnimation:UITableViewRowAnimationRight];
-        } else {
-            [tableView insertRowsAtIndexPaths: indices withRowAnimation:UITableViewRowAnimationLeft];
-        }
+        qRow.extended = YES;
+        [table insertRowsAtIndexPaths: indices withRowAnimation:UITableViewRowAnimationLeft];
+    }
+}
+
+- (void) closeRow: (int) row {
+    QRow* qRow = [qnas objectAtIndex: row];
+    if (qRow.extended) {
+        NSIndexPath* index = [NSIndexPath indexPathForRow:1 inSection:row];
+        NSArray* indices = [NSArray arrayWithObject: index];
+        qRow.extended = NO;
+        [table deleteRowsAtIndexPaths: indices withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 
 -(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString* url = request.URL.absoluteString;
-    url = [url stringByReplacingOccurrencesOfString:@"<b>" withString:@""];
-    url = [url stringByReplacingOccurrencesOfString:@"</b>" withString:@""];
-    NSLog(@"%@", url);
     if ([url compare:@"about:blank"] == NSOrderedSame) {
         return YES;
     }
@@ -237,6 +254,18 @@
         [[UIApplication sharedApplication] openURL:url];
     }
     return NO;
+}
+
+- (void) openQuestion: (NSString*) anchor {
+    for (int i = 0; i < header.questions.count; i++) {
+        Question* question = [header.questions objectAtIndex:i];
+        if (question.anchor != nil && [question.anchor caseInsensitiveCompare:anchor] == NSOrderedSame) {
+            NSIndexPath* path = [NSIndexPath indexPathForRow:0 inSection:i];
+            [table scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self openRow:i];
+            
+        }
+    }
 }
 
 - (void) internalLinkWithURL: (NSString*) url {
@@ -266,14 +295,16 @@
                 }
                 
                 if (linkHeader != nil) {
-                    if (linkHeader != self.header) {
-                         [self performSegueWithIdentifier:@"pushHeader" sender:linkHeader];
+                    
+                    questionAnchor = nil;
+                    if (sections.count > 2) {
+                        questionAnchor = [sections objectAtIndex:2];
                     }
                     
-                    if (sections.count > 2) {
-                        NSString* questionName = [sections objectAtIndex:2];
-                        //Open Question
-                        
+                    if (linkHeader == self.header) {
+                        [self openQuestion:questionAnchor];
+                    } else {
+                        [self performSegueWithIdentifier:@"pushHeader" sender:linkHeader];
                     }
                 } else {
                     NSLog(@"No header: %@", headerName);
@@ -290,6 +321,8 @@
         if ([sender isKindOfClass:[NSString class]]) {
             [segue.destinationViewController setRecordName: sender];
         } else if ([sender isKindOfClass:[Header class]]) {
+            [segue.destinationViewController setQuestionAnchor:questionAnchor];
+            questionAnchor = nil;
             [segue.destinationViewController setHeader: sender];
         }
     }
@@ -306,7 +339,7 @@
     [table beginUpdates];
     [table endUpdates];
     
-    webView.frame = CGRectMake(10, 10, 300, height);
+    webView.frame = CGRectMake(PADDING, PADDING, webView.frame.size.width, height);
 }
 
 @end

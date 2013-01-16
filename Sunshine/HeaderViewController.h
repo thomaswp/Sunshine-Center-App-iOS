@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) Header* header;
 @property (strong, nonatomic) NSString* searchString;
+@property (strong, nonatomic) NSString* questionAnchor;
 @property (weak, nonatomic) IBOutlet UINavigationItem* navItem;
 @property (weak, nonatomic) IBOutlet UITableView* table;
 @property (weak, nonatomic) IBOutlet UIButton* reloadButton;

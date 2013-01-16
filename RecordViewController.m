@@ -17,6 +17,8 @@
 
 @implementation RecordViewController
 
+@synthesize table;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,11 @@
     self.navItem.title = record.name;
     self.table.dataSource = self;
     self.table.delegate = self;
+    
+    if ([table respondsToSelector:@selector(backgroundView)]) {
+        table.backgroundView = nil;
+        table.backgroundView = [[UIView alloc] init];
+    }
 }
 
 - (void)viewDidUnload
