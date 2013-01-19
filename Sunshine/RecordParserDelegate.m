@@ -10,6 +10,7 @@
 #import "Record.h"
 #import "Section.h"
 
+//Parses the XML files to create the Record, Section, Header and Question data structures
 @implementation RecordParserDelegate
 
 @synthesize record;
@@ -26,6 +27,7 @@ BOOL bodyContainsHTML = true;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
+    //If we come across an elemnt, create an object to represent it
     if ([Record isRecord:elementName]) {
         currentRecord = [Record recordWithAttributes: attributeDict];
     } else if ([Section isSection:elementName]) {
@@ -38,6 +40,7 @@ BOOL bodyContainsHTML = true;
         currentBody = [NSMutableString string];
         currentAttributes = [NSDictionary dictionaryWithDictionary:attributeDict];
     } else if (currentBody != nil) {
+        //Otherwise, add the HTML element literally to the current body
         NSEnumerator* e = [attributeDict keyEnumerator];
         NSString *key;
         [currentBody appendFormat:@"<%@", elementName];
@@ -45,15 +48,19 @@ BOOL bodyContainsHTML = true;
             [currentBody appendFormat: @" %@=\"%@\"", key, [attributeDict valueForKey:key]];
         }
         [currentBody appendString:@">"];
+        //Right now we keep track of which Questions contain HTML, but we treat it all the same in reality
+        //Optimization could treat them differently to minimize WebViews
         bodyContainsHTML = YES;
     } else {
-        NSLog(@"%@", elementName);
+        NSLog(@"Couldn't parse: %@", elementName);
     }
     record = currentRecord;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    //If this is a "header element" ('q' or 'an')...
     if ([Header isHeaderElement:elementName]) {
+        //Replace newlines and tabs with spaces, as a browser would ignore them
         [currentBody replaceOccurrencesOfString:@"\n"
                                      withString:@" "
                                         options:0
@@ -62,7 +69,9 @@ BOOL bodyContainsHTML = true;
                                      withString:@""
                                         options:0
                                           range:NSMakeRange(0, [currentBody length])];
+        //And trim the string for any leading or trailing spaces
         NSString* trimmed = [currentBody stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+        //And add the Question or Answer to the current Header
         [currentHeader addElementWithName:elementName attributes:currentAttributes body:trimmed containsHTML:bodyContainsHTML];
         currentBody = nil;
         bodyContainsHTML = NO;

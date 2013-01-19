@@ -8,6 +8,7 @@
 
 #import "Section.h"
 
+//Represents a section of a Record
 @implementation Section
 
 @synthesize headers;

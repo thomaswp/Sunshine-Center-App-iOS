@@ -19,9 +19,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -29,11 +26,6 @@
 {
     [super viewDidLoad];
     
-//    UIWindow* window = [UIApplication sharedApplication].keyWindow;
-//    OHAttributedLabel* label = [[OHAttributedLabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    label.attributedText = [OHASBasicHTMLParser attributedStringByProcessingMarkupInString:@"Hello <b>you</b>!"];
-//    label.centerVertically = YES;
-//    [window addSubview:label];
 }
 
 - (void)viewDidUnload
@@ -43,11 +35,15 @@
     // e.g. self.myOutlet = nil;
 }
 
+//Actions for each of the social buttons at the bottom:
+
+//Phone
 -(IBAction) phoneButtonPressed:(id)sender {
     NSString *phoneNumber = @"tel://1-336-278-5506";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
+//Email
 -(IBAction) emailButtonPressed:(id)sender {
     NSString* email = @"ncopengov@elon.edu";
     NSString* subject = [@"Question for the Sunshine Center" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -57,16 +53,19 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
+//Facebook
 -(IBAction) facebookButtonPressed:(id)sender {
     NSString *url = @"http://www.facebook.com/pages/Sunshine-Center-of-North-Carolina-Open-Government-Coalition/10150100833975217";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
+//Twitter
 -(IBAction) twitterButtonPressed:(id)sender {
     NSString *url = @"http://twitter.com/NCOpenGov";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
+//Website
 -(IBAction) sunshineButtonPressed:(id)sender {
     NSString *url = @"http://www.elon.edu/e-web/academics/communications/ncopengov/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
@@ -77,6 +76,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+//Each button has a tag corresponding to the index of the record it loads
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     int tag = [sender tag];

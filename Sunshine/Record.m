@@ -8,6 +8,7 @@
 
 #import "Record.h"
 
+//Represents a whole XML file
 @implementation Record
 
 @synthesize name;
@@ -21,6 +22,7 @@
     return [qName caseInsensitiveCompare:@"record"] == NSOrderedSame;
 }
 
+//Right now we don't do anything, but if UTF-8 ever stops working, we could remove problematic character from the XML files
 +(NSString*) removeSpecialCharacters:(NSString *)text {
 //    text = [text  stringByReplacingOccurrencesOfString:@"‚Äù" withString:@"\""];
 //    text = [text  stringByReplacingOccurrencesOfString:@"‚Äò" withString:@"'"];

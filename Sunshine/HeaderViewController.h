@@ -20,4 +20,11 @@
 @property (weak, nonatomic) IBOutlet UITableView* table;
 @property (weak, nonatomic) IBOutlet UIButton* reloadButton;
 
+
+//Padding for table cells
+#define WIDTH_PADDING 15
+#define HEIGHT_PADDING 10
+//Font size for table cells
+#define FONT_SIZE 17
+
 @end

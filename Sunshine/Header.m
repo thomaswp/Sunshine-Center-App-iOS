@@ -10,6 +10,7 @@
 #import "Question.h"
 #import "Record.h"
 
+//Represents a group of Questions and Answers
 @implementation Header
 
 @synthesize questions;

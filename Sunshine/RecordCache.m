@@ -9,21 +9,24 @@
 #import "RecordCache.h"
 #import "RecordParserDelegate.h"
 
+//Cache that holds the records after they're loaded
 @implementation RecordCache
 
 static NSMutableDictionary* recordCache;
+//The CSS for all webviews
 static NSString* style;
 
+//The three records
 NSString* const RECORDS[] = {
     @"seekers",
     @"holders",
     @"laws"
 };
-
 int const NUM_RECORDS = 3;
 
 + (void)initialize
 {
+    //Statically initialize only once
     static BOOL initialized = NO;
     if(!initialized)
     {
@@ -34,8 +37,9 @@ int const NUM_RECORDS = 3;
 
 +(Record *)parseRecordWithPath:(NSString *)path {
     Record* record = [recordCache objectForKey:path];
+    
+    //Only load it if we haven't already
     if (record == nil) {
-        
         RecordParserDelegate* delegate = [RecordParserDelegate delegate];
         NSString *xmlPath = [[NSBundle mainBundle] pathForResource:path ofType:@"xml"];
         NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath];

@@ -8,6 +8,7 @@
 
 #import "Question.h"
 
+//Represents a single Question and Answer
 @implementation Question
 
 @synthesize question, answer, containsHTML, anchor, tempWeight, parent;

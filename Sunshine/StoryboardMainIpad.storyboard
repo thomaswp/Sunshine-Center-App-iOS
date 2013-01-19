@@ -204,31 +204,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ms4-av-zO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xBX-er-wfu" customClass="RecordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJO-jd-MGo">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="38" sectionHeaderHeight="10" sectionFooterHeight="10" id="BvW-97-mGX">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.94837421020000001" blue="0.69333969510000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" rowHeight="38" id="P25-Dh-okv">
-                                        <rect key="frame" x="0.0" y="54" width="768" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="45" y="1" width="678" height="37"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.94837421020000001" blue="0.69333969510000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="frn-KK-82j"/>
                     <connections>
-                        <outlet property="dummyCell" destination="P25-Dh-okv" id="8Wi-G0-Ipu"/>
                         <outlet property="navItem" destination="frn-KK-82j" id="GJv-ud-1XV"/>
                         <outlet property="searchDisplayController" destination="pFM-EM-CXo" id="aQN-9D-Vv9"/>
                         <outlet property="table" destination="BvW-97-mGX" id="CEG-AE-OSg"/>
@@ -252,24 +240,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3j-is-mdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mmS-EZ-ZzF" customClass="HeaderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jgw-6L-K6W">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uD0-dr-1vr">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="980"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.94837421020000001" blue="0.69333969510000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="38" id="1Ez-Os-mQ1">
-                                        <rect key="frame" x="0.0" y="22" width="768" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="37"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nkZ-86-TXt">
                                 <rect key="frame" x="0.0" y="208" width="320" height="44"/>
@@ -295,7 +272,7 @@
                         <outlet property="reloadButton" destination="nkZ-86-TXt" id="1Th-4r-i0u"/>
                         <outlet property="searchDisplayController" destination="qii-As-8ZN" id="i4T-A8-Gqi"/>
                         <outlet property="table" destination="uD0-dr-1vr" id="evk-hQ-fqt"/>
-                        <segue destination="xBX-er-wfu" kind="custom" identifier="pushRecord" id="wFe-xc-wII"/>
+                        <segue destination="xBX-er-wfu" kind="push" identifier="pushRecord" id="wFe-xc-wII"/>
                     </connections>
                 </viewController>
                 <searchDisplayController id="qii-As-8ZN">
@@ -355,7 +332,7 @@
                     <connections>
                         <outlet property="switchAnswers" destination="ikO-Kz-C25" id="mUy-3l-ct4"/>
                         <outlet property="switchQuestions" destination="REn-d4-QZ0" id="hYN-pd-Gug"/>
-                        <segue destination="mmS-EZ-ZzF" kind="custom" identifier="push" id="6Mi-1q-StI"/>
+                        <segue destination="mmS-EZ-ZzF" kind="push" identifier="push" id="6Mi-1q-StI"/>
                     </connections>
                 </viewController>
             </objects>
@@ -372,6 +349,46 @@
         <image name="sunshine.png" width="48" height="48"/>
         <image name="t_logo.png" width="48" height="48"/>
     </resources>
+    <classes>
+        <class className="HeaderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HeaderViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailButtonPressed:"/>
+                <relationship kind="action" name="facebookButtonPressed:"/>
+                <relationship kind="action" name="phoneButtonPressed:"/>
+                <relationship kind="action" name="sunshineButtonPressed:"/>
+                <relationship kind="action" name="twitterButtonPressed:"/>
+                <relationship kind="outlet" name="buttonEmail" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonFacebook" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonPhone" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSunshine" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonTwitter" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RecordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dummyCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="switchAnswers" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchQuestions" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -379,6 +396,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="wFe-xc-wII"/>
-        <segue reference="voX-6x-agf"/>
+        <segue reference="6Mi-1q-StI"/>
     </inferredMetricsTieBreakers>
 </document>
