@@ -103,7 +103,7 @@
 		9DBC309416430BB000F69154 /* seekers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = seekers.xml; sourceTree = "<group>"; };
 		9DBC309516430BB000F69154 /* laws.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = laws.xml; sourceTree = "<group>"; };
 		9DBC309616430BB000F69154 /* holders.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = holders.xml; sourceTree = "<group>"; };
-		9DC231661604F167009C5B34 /* Sunshine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Sunshine.app; path = "Sunshine Center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC231661604F167009C5B34 /* Sunshine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunshine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC2316A1604F167009C5B34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9DC2316C1604F167009C5B34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DC2316E1604F167009C5B34 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };

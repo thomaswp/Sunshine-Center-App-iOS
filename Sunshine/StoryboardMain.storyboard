@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aHO-78-KpW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aHO-78-KpW">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="9WQ-Jt-udR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FLQ-d5-9bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="aHO-78-KpW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ja8-VC-eND">
                         <autoresizingMask key="autoresizingMask"/>
@@ -17,6 +16,7 @@
                         <segue destination="lQj-lo-F98" kind="relationship" relationship="rootViewController" id="VQr-Cp-iAT"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLQ-d5-9bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchBar contentMode="redraw" id="TcI-Zc-dvs">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -28,7 +28,6 @@
         <!--Main View Controller - Sunshine Center-->
         <scene sceneID="mFt-5j-1cv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jYv-UI-F62" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lQj-lo-F98" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VeE-LI-ryr">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -38,19 +37,12 @@
                                 <rect key="frame" x="0.0" y="359" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Records and Meetings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CCY-fH-BKz">
-                                <rect key="frame" x="20" y="171" width="177" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo_trans_bigger.png" id="oxE-RT-azt">
-                                <rect key="frame" x="14" y="6" width="293" height="165"/>
+                                <rect key="frame" x="7" y="6" width="300" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5j4-mA-J00">
-                                <rect key="frame" x="20" y="215" width="280" height="37"/>
+                                <rect key="frame" x="20" y="197" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Seekers of Public Information">
@@ -64,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B8q-AV-3p4">
-                                <rect key="frame" x="20" y="260" width="280" height="37"/>
+                                <rect key="frame" x="20" y="250" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Holders of Public Information">
@@ -79,10 +71,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yKy-1I-WSm">
-                                <rect key="frame" x="20" y="305" width="280" height="37"/>
+                                <rect key="frame" x="20" y="303" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Laws">
+                                <state key="normal" title="Principles and Laws">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -187,6 +179,7 @@
                         <outlet property="searchDisplayController" destination="jCn-bv-7Yx" id="9m7-g9-OmI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYv-UI-F62" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="jCn-bv-7Yx">
                     <connections>
                         <outlet property="delegate" destination="lQj-lo-F98" id="I3N-lS-BcU"/>
@@ -201,7 +194,6 @@
         <!--Record View Controller-->
         <scene sceneID="cdM-O5-FcO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ms4-av-zO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xBX-er-wfu" customClass="RecordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJO-jd-MGo">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -223,6 +215,7 @@
                         <segue destination="mmS-EZ-ZzF" kind="push" identifier="push" id="voX-6x-agf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ms4-av-zO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="pFM-EM-CXo">
                     <connections>
                         <outlet property="delegate" destination="xBX-er-wfu" id="yP0-Ku-P7z"/>
@@ -237,7 +230,6 @@
         <!--Header View Controller-->
         <scene sceneID="9hv-xf-LIp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X3j-is-mdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mmS-EZ-ZzF" customClass="HeaderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jgw-6L-K6W">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -275,6 +267,7 @@
                         <segue destination="xBX-er-wfu" kind="push" identifier="pushRecord" customClass="UISegue" id="wFe-xc-wII"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3j-is-mdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="qii-As-8ZN">
                     <connections>
                         <outlet property="delegate" destination="mmS-EZ-ZzF" id="Vib-bh-Njt"/>
@@ -289,7 +282,6 @@
         <!--Search View Controller - Search-->
         <scene sceneID="IIc-uG-0u7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B5y-AS-1P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lOR-93-7vS" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XIE-8L-dec">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -335,6 +327,7 @@
                         <segue destination="mmS-EZ-ZzF" kind="push" identifier="push" id="6Mi-1q-StI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5y-AS-1P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931" y="621"/>
         </scene>
@@ -361,11 +354,6 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="emailButtonPressed:"/>
-                <relationship kind="action" name="facebookButtonPressed:"/>
-                <relationship kind="action" name="phoneButtonPressed:"/>
-                <relationship kind="action" name="sunshineButtonPressed:"/>
-                <relationship kind="action" name="twitterButtonPressed:"/>
                 <relationship kind="outlet" name="buttonEmail" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonFacebook" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonPhone" candidateClass="UIButton"/>
@@ -395,7 +383,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="j4X-Lj-rHd"/>
         <segue reference="6Mi-1q-StI"/>
-        <segue reference="wFe-xc-wII"/>
     </inferredMetricsTieBreakers>
 </document>

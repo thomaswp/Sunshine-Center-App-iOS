@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9DC231651604F167009C5B34"
-               BuildableName = "Sunshine Center.app"
+               BuildableName = "Sunshine.app"
                BlueprintName = "Sunshine"
                ReferencedContainer = "container:Sunshine.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DC231651604F167009C5B34"
-            BuildableName = "Sunshine Center.app"
+            BuildableName = "Sunshine.app"
             BlueprintName = "Sunshine"
             ReferencedContainer = "container:Sunshine.xcodeproj">
          </BuildableReference>
@@ -57,13 +57,12 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DC231651604F167009C5B34"
-            BuildableName = "Sunshine Center.app"
+            BuildableName = "Sunshine.app"
             BlueprintName = "Sunshine"
             ReferencedContainer = "container:Sunshine.xcodeproj">
          </BuildableReference>
@@ -81,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DC231651604F167009C5B34"
-            BuildableName = "Sunshine Center.app"
+            BuildableName = "Sunshine.app"
             BlueprintName = "Sunshine"
             ReferencedContainer = "container:Sunshine.xcodeproj">
          </BuildableReference>
