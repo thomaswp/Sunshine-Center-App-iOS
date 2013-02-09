@@ -39,7 +39,7 @@
 
 //Phone
 -(IBAction) phoneButtonPressed:(id)sender {
-    NSString *phoneNumber = @"tel://1-336-278-5506";
+    NSString *phoneNumber = @"telprompt://1-336-278-5506";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 

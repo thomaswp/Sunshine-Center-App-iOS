@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppStoreFileSize</key>
+	<integer>1051112</integer>
+	<key>AppStoreFileSizeValid</key>
+	<true/>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Sunshine.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.sunshine.Sunshine</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>1.0</string>
+		<key>IconPaths</key>
+		<array>
+			<string>Applications/Sunshine.app/Icon.png</string>
+			<string>Applications/Sunshine.app/Icon@2x.png</string>
+			<string>Applications/Sunshine.app/Icon-72.png</string>
+			<string>Applications/Sunshine.app/icon-144.png</string>
+		</array>
+		<key>SigningIdentity</key>
+		<string>iPhone Developer: Joel Hollingsworth (2WNC5EG2JW)</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2013-02-09T21:47:43Z</date>
+	<key>Name</key>
+	<string>Sunshine</string>
+	<key>SchemeName</key>
+	<string>Sunshine</string>
+</dict>
+</plist>

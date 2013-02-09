@@ -1,0 +1,19 @@
+9/15 3h20m
+10/24 2h15m
+10/26 3h20m
+10/31 1h
+11/1 1h30m
+1/4 1h30min
+1/5 2h
+1/8 1h
+1/9 1h15m
+1/11 1h
+1/14 1h30m
+1/16 1h5m
+1/19 2h45m
+2/7 30m
+2/9 2:30
+
+TODO:
+-user interface guidelines
+-private libraries
